@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * Implement hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function opendeals_install() {
+	opendeals_enable_theme();
+	opendeals_enable_admin_theme();
+}
+
+/**
+* Set opendeals as the front end Theme
+*/
+function opendeals_enable_theme () {
+  // Enable the admin theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'opendeals_theme')
+    ->execute();
+  variable_set('theme_default', 'opendeals_theme');
+}
+
+/**
+* Set Rubik as the Admin Theme
+*/
+function opendeals_enable_admin_theme () {
+  // Enable the admin theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'seven')
+    ->execute();
+  $result = db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'rubik')
+    ->execute();
+    
+  // if rubik exists
+ 	if( $result ) {
+  	variable_set('admin_theme', 'rubik');
+  }
+  else{
+  	variable_set('admin_theme', 'seven');
+  }
+  variable_set('node_admin_theme', '1');
+}
+
+/**
+ * Update operations No1
+ */
+function opedeals_update_7100(){
+	// update commerce panes
+	opendeals_update_commerce_panes();
+}

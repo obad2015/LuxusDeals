@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Opendeals Content Types feature.
+ */
+
+include_once('opendeals_content_types.features.inc');

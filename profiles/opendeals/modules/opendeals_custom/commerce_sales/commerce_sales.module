@@ -1,0 +1,183 @@
+<?php
+
+/**
+ * @file
+ * Allow commerce products to have sales levels associated with their SKU
+ *
+ * Commerce Sales Reports enables Commerce to report on sales for products. Store admins
+ * can set a threshold on a product edit page.
+ * When that threshold is reached admins can be optionally notified about the
+ * current sales level. Store admins can view all sales levels using views.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_sales_menu() {
+  $items = array();
+
+  $items['admin/commerce/config/sales'] = array(
+    'title' => 'Sales management',
+    'description' => 'Configure sales reporting.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('commerce_sales_admin_form'),
+    'access arguments' => array('administer commerce_product entities'),
+    'file' => 'includes/commerce_sales.admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Determine whether an order has items which have never been sold before.
+ *
+ * @param $order
+ *   An order object
+ *
+ * @return
+ *   Boolean: TRUE if the order has items which have a sales level over 0
+ *   FALSE otherwise.
+ */
+function commerce_sales_order_has_any_sales($order) {
+  $line_items = $order->commerce_line_items['und'];
+  foreach ($line_items as $line_item_id ) {
+    $line_item = commerce_line_item_load($line_item_id['line_item_id']);
+    if($line_item->type == 'product') {
+      $product = commerce_product_load($line_item->commerce_product['und'][0]['product_id']);
+      if(commerce_sales_product_check_any_sales($line_item->commerce_product['und'][0]['product_id']) != FALSE) {
+        return TRUE;
+      }
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Check whether a product has any sales
+ *
+ * @param $product_id
+ *   The numeric product ID
+ *
+ * @return
+ *   TRUE if the product has had sales.
+ *   FALSE otherwise.
+ */
+function commerce_sales_product_check_any_sales($product_id) {
+  $product = commerce_product_load($product_id);
+  // @todo: We shouldn't be using 'und' here should we?
+  if(isset($product->commerce_sales['und'])){
+    if($product->commerce_sales['und'][0]['value'] == 0) {
+      return TRUE;
+    }
+    else  {
+      return FALSE;
+    }
+  }
+}
+
+/**
+ * Ensures a sales field is present on a product type bundle.
+ */
+function commerce_sales_configure_product_type($type) {
+  commerce_sales_create_instance('commerce_sales', 'commerce_product', $type, t('Sales'));
+}
+
+/**
+ * Creates a required, locked instance of a sales field on the specified bundle.
+ *
+ * @param $field_name
+ *   The name of the field; if it already exists, a new instance of the existing
+ *   field will be created. For fields governed by the Commerce modules, this
+ *   should begin with commerce_.
+ * @param $entity_type
+ *   The type of entity the field instance will be attached to.
+ * @param $bundle
+ *   The bundle name of the entity the field instance will be attached to.
+ * @param $label
+ *   The label of the field instance.
+ * @param $weight
+ *   The default weight of the field instance widget and display.
+ */
+function commerce_sales_create_instance($field_name, $entity_type, $bundle, $label, $weight = 0) {
+  // If a field type we know should exist isn't found, clear the Field cache.
+//  if (!field_info_field_types('commerce_sales')) {
+//    field_cache_clear();
+//  }
+
+  // Look for or add the specified sales field to the requested entity bundle.
+  $field = field_info_field($field_name);
+  $instance = field_info_instance($entity_type, $field_name, $bundle);
+
+  if (empty($field)) {
+    $field = array(
+      'field_name' => $field_name,
+      'type' => 'number_integer',
+      'cardinality' => 1,
+      'entity_types' => array($entity_type),
+      'translatable' => FALSE,
+      'locked' => TRUE,
+    );
+    $field = field_create_field($field);
+  }
+
+  if (empty($instance)) {
+    $instance = array(
+      'field_name' => $field_name,
+      'entity_type' => $entity_type,
+      'bundle' => $bundle,
+      'label' => $label,
+      'required' => TRUE,
+      'settings' => array(),
+      'display' => array(),
+    );
+
+    $entity_info = entity_get_info($entity_type);
+
+    // Spoof the default view mode so its display type is set.
+    $entity_info['view modes']['default'] = array();
+
+    field_create_instance($instance);
+  }
+}
+
+/**
+ * Given a product type, determine whether sales reporting is enabled on that
+ * product type.
+ *
+ * @param $type
+ *   The product type.
+ *
+ * @return
+ *   Boolean: TRUE if sales reporting is enabled.
+ */
+function commerce_sales_product_type_enabled($type) {
+  $instance = field_info_instance('commerce_product', 'commerce_sales', $type);
+  return (!empty($instance));
+}
+
+/**
+ * Given a product, determine whether sales reporting is enabled for that
+ * product.
+ *
+ * @param $product
+ *   The product to check.
+ *
+ * @return
+ *   Boolean: TRUE if sales reporting is enabled on the product's product type.
+ */
+function commerce_sales_product_enabled($product) {
+  return commerce_sales_product_type_enabled($product->type);
+}
+
+/**
+ * Given a line item, determine whether sales reporting is enabled for that
+ * line item.
+ *
+ * @param $line_item
+ *   The line item to check.
+ *
+ * @return
+ *   Boolean: TRUE if sales reporting is enabled on the product's product type.
+ */
+function commerce_sales_line_item_product_enabled($line_item) {
+  return commerce_sales_product_type_enabled($line_item->product->type);
+}

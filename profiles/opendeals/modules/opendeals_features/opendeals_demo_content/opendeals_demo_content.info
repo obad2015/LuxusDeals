@@ -1,0 +1,18 @@
+core = "7.x"
+dependencies[] = "defaultcontent"
+dependencies[] = "features"
+dependencies[] = "opendeals_content_types"
+description = "create demo content"
+features[content][] = "faq"
+features[content][] = "how-it-works"
+features[content][] = "thank-you"
+name = "Opendeals Demo Content"
+package = "Features"
+php = "5.2.4"
+project = "opendeals_demo_content"
+; Information added by Drupal.org packaging script on 2014-11-02
+version = "7.x-1.35"
+core = "7.x"
+project = "opendeals"
+datestamp = "1414969175"
+

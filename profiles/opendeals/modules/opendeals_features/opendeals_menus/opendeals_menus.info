@@ -1,0 +1,18 @@
+core = "7.x"
+dependencies[] = "features"
+dependencies[] = "menu"
+description = "create demo menus"
+features[menu_custom][] = "main-menu"
+features[menu_links][] = "main-menu:<front>"
+features[menu_links][] = "main-menu:all-deals"
+features[menu_links][] = "main-menu:past-deals"
+name = "Opendeals Menus"
+package = "Features"
+php = "5.2.4"
+project = "opendeals_menus"
+; Information added by Drupal.org packaging script on 2014-11-02
+version = "7.x-1.35"
+core = "7.x"
+project = "opendeals"
+datestamp = "1414969175"
+

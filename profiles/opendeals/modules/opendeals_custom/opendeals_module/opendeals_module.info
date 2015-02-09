@@ -1,0 +1,12 @@
+name = "Open Deals Module"
+description = "The OpenDeals_module for the Open Deals Distribution"
+core = 7.x
+files[] = opendeals_module.module
+files[] = includes/opendeals_module.views.inc
+
+; Information added by Drupal.org packaging script on 2014-11-02
+version = "7.x-1.35"
+core = "7.x"
+project = "opendeals"
+datestamp = "1414969175"
+

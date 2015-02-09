@@ -1,0 +1,15 @@
+core = "7.x"
+dependencies[] = "features"
+dependencies[] = "opendeals_defaults"
+description = "create opendeals user roles"
+features[user_role][] = "Manager"
+features[user_role][] = "administrator"
+name = "Opendeals Roles"
+package = "Features"
+project = "opendeals_roles"
+; Information added by Drupal.org packaging script on 2014-11-02
+version = "7.x-1.35"
+core = "7.x"
+project = "opendeals"
+datestamp = "1414969175"
+

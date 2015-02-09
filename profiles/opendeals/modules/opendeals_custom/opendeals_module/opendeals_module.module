@@ -1,0 +1,283 @@
+<?php
+/**
+ * Implements hook_commerce_checkout_complete().
+ */
+function opendeals_module_commerce_checkout_complete($order) {
+	$wrapper = entity_metadata_wrapper('commerce_order', $order);
+	$wrapper->field_coupon->set(opendeals_module_create_coupon_code());
+	$wrapper->save();
+}
+
+/**
+ * Creates a coupon code
+ */
+function opendeals_module_create_coupon_code(){
+	global $user;
+	return rand(10,99).$user->uid.time();
+}
+
+/**
+ * Implements hook_user_login().
+ * Used to fix bug reported in http://drupal.org/node/1334782
+ */
+function opendeals_module_user_login(&$edit, &$account){
+  if(!isset($account->cache)){
+    $account->cache = 0;
+  }
+}
+
+/**
+ * Switches the euro symbol position to the left of each price
+ */
+function opendeals_module_commerce_currency_info_alter(&$currencies, $langcode) {
+  $currencies['EUR']['symbol_placement'] = 'before';
+}
+
+/**
+ * Implements hook_views_pre_build().
+ */
+function opendeals_module_views_pre_build(&$view) {
+  if ($view->name == 'all_deals' || $view->name == 'frontpage') {
+    if (!empty($_GET['deals_city'])) {
+      $view->args[0] = $_GET['deals_city'];
+    }
+  }
+}
+
+/**
+ * Implements hook_init().
+ */
+function opendeals_module_init() {
+  drupal_add_js('misc/jquery.cookie.js');
+  drupal_add_js('profiles/opendeals/modules/opendeals_custom/opendeals_module/opendeals_module.js');
+}
+
+/**
+ * Implements hook_boot().
+ */
+function opendeals_module_boot() {
+  // init database layer
+  _drupal_bootstrap_database();
+
+  // get taxonomy terms
+  $result = db_select('taxonomy_term_data', 't')
+    ->fields('t')
+    ->execute();
+  $terms = array();
+  while($record = $result->fetchAssoc()) {
+    $terms[$record['tid']] = $record['name'];
+  }
+
+  // some global stuff
+  global $base_path, $base_root;
+
+  // init current city var
+  $current_city = '';
+
+  // if city is defined in cookie we move it in url to handle caching
+  if (isset($_COOKIE['deals_city'])) {
+    $current_city = trim($_COOKIE['deals_city']);
+
+    // if no exists
+    if (!array_key_exists($current_city, $terms)) {
+      $current_city = '';
+      setcookie('deals_city', $current_city, time() - 365 * 24 * 60 * 60, $base_path);
+    }
+
+    // prevent infinite loops
+    if(isset($_GET['deals_city']) and $current_city == $_GET['deals_city']){
+      return;
+    }
+
+    $url = request_uri();
+
+    // change url
+    if(isset($_GET['deals_city'])){
+      $_SERVER['REQUEST_URI'] = str_replace('deals_city='.$_GET['deals_city'], 'deals_city='.$current_city, $_SERVER['REQUEST_URI']);
+    }
+    else{
+      if(strstr($url, '?')){
+        $_SERVER['REQUEST_URI'] .= '&deals_city='.$current_city;
+      }
+      else{
+        $_SERVER['REQUEST_URI'] .= '?deals_city='.$current_city;
+      }
+    }
+    $_GET['deals_city'] = $current_city;
+
+    // The next step is to serve cache for the new url or continue with the
+    // uncached content if needed
+
+    // Check for a cache mode force from settings.php.
+    if (variable_get('page_cache_without_database')) {
+      $cache_enabled = TRUE;
+    }
+    else {
+      drupal_bootstrap(DRUPAL_BOOTSTRAP_VARIABLES, FALSE);
+      $cache_enabled = variable_get('cache');
+    }
+    
+    drupal_block_denied(ip_address());
+
+    // If there is no session cookie and cache is enabled (or forced), try
+    // to serve a cached page.
+    if (!isset($_COOKIE[session_name()]) && $cache_enabled) {
+      $cacheble = &drupal_static('drupal_page_is_cacheable', TRUE, TRUE);
+      $cache = drupal_page_get_cache();
+      if (is_object($cache)) {
+        header('X-Drupal-Cache: HIT');
+        // Restore the metadata cached with the page.
+        $_GET['q'] = $cache->data['path'];
+        drupal_set_title($cache->data['title'], PASS_THROUGH);
+        date_default_timezone_set(drupal_get_user_timezone());
+        // If the skipping of the bootstrap hooks is not enforced, call
+        // hook_boot.
+        if (variable_get('page_cache_invoke_hooks', TRUE)) {
+          bootstrap_invoke_all('boot');
+        }
+        drupal_serve_page_from_cache($cache);
+        // If the skipping of the bootstrap hooks is not enforced, call
+        // hook_exit.
+        if (variable_get('page_cache_invoke_hooks', TRUE)) {
+          bootstrap_invoke_all('exit');
+        }
+        // We are done.
+        exit;
+      }
+
+      // if there is no cache available for this page redirect to create it.
+      header( "HTTP/1.1 301 Moved Permanently" );
+      header( "Location: " . $base_root . request_uri());
+			exit;
+    }
+  }
+
+  // set deals_city var.
+  $_GET['deals_city'] = $current_city;
+}
+
+/**
+ * Check if the deal is active.
+ */
+function opendeals_module_is_active($node) {
+	$wrapper = entity_metadata_wrapper('node', $node);
+	$stock = $wrapper->field_product->field_stock->value();
+	$sales = $wrapper->field_product->commerce_sales->value();
+	$stock = empty($stock)?-1:$stock;
+	$sales = empty($sales)?0:$sales;
+	$in_stock = ($stock > $sales or $stock < 0);
+	$endtime = $wrapper->field_timending->value();
+  $now = time();
+  $left = $endtime-$now;
+  return ($left>0 && $in_stock);
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function opendeals_module_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'opendeals_module') . '/includes',
+  );
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function opendeals_module_block_info() {
+  $blocks['support'] = array(
+    'info' => t('Support'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function opendeals_module_block_view($delta = '') {
+
+  $block = array();
+
+  if ($delta == 'support') {
+    $block['subject'] = t('Professional Support');
+    $block['content'] = '<table><tr class="even messages"><td>' . t('You may use the Open Deals distribution for free for you and your clients and you can customize it at will. We hope that the distribution will be beneficial and useful for you. If you need help implementing or customizing your site, you can get paid support from us at <a target="_blank" href="http://www.netstudio.gr/en">netstudio.gr</a>.') . '</td></tr></table>';
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function opendeals_module_field_formatter_info() {
+  return array(
+    'opendeals_formatted_amount' => array(
+      'label' => t('Opendeals Price Format (decimals handler)'),
+      'field types' => array('commerce_price'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ * Stolen from commerce_price
+ */
+function opendeals_module_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  // Loop through each price value in this field.
+  foreach ($items as $delta => $item) {
+    // Do not render a price if the amount is NULL (i.e. non-zero empty value).
+    if (is_null($item['amount'])) {
+      // TODO: Consider if we should render as N/A or something indicating a
+      // price was not available as opposed to just leaving a blank.
+      continue;
+    }
+    
+    if($display['type'] == 'opendeals_formatted_amount'){
+      $element[$delta] = array(
+        '#markup' => opendeals_currency_format($item['amount'], $item['currency_code'], $entity),
+      );
+
+    }
+  }
+  
+  return $element;
+} 
+
+function opendeals_currency_format($amount, $currency_code, $object = NULL) {
+  // First load the currency array.
+  $currency = commerce_currency_load($currency_code);
+
+  // Then convert the price amount to the currency's major unit decimal value.
+  if ($convert = TRUE) {
+    $amount = commerce_currency_amount_to_decimal($amount, $currency_code);
+  }
+
+  // Invoke the custom format callback if specified.
+  if (!empty($currency['format_callback'])) {
+    return $currency['format_callback']($amount, $currency, $object);
+  }
+
+  // get decimal part
+  $decimal = commerce_currency_round(abs($amount), $currency);
+  if(!strstr($decimal, $currency['decimal_separator'])){
+    $currency['decimals'] = 0;
+  }
+
+  // Format the price as a number.
+  $price = number_format(commerce_currency_round(abs($amount), $currency), $currency['decimals'], $currency['decimal_separator'], $currency['thousands_separator']);
+
+  // Establish the replacement values to format this price for its currency.
+  $replacements = array(
+    '@code_before' => $currency['code_placement'] == 'before' ? $currency['code'] : '',
+    '@symbol_before' => $currency['symbol_placement'] == 'before' ? $currency['symbol'] : '',
+    '@price' => $price,
+    '@symbol_after' => $currency['symbol_placement'] == 'after' ? $currency['symbol'] : '',
+    '@code_after' => $currency['code_placement'] == 'after' ? $currency['code'] : '',
+    '@negative' => $amount < 0 ? '-' : '',
+  );
+
+  return trim(t('@code_before @negative@symbol_before@price @symbol_after @code_after', $replacements));
+}

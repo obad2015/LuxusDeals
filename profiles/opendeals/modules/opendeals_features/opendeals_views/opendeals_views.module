@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Opendeals Views feature.
+ */
+
+include_once('opendeals_views.features.inc');

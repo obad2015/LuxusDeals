@@ -1,0 +1,17 @@
+core = "7.x"
+dependencies[] = "commerce_cart"
+dependencies[] = "opendeals_content_types"
+dependencies[] = "opendeals_defaults"
+description = "create opendeals rules"
+features[rules_config][] = "rules_add_to_cart"
+features[rules_config][] = "rules_empty_cart_from_previously_added_products"
+name = "Opendeals Rules"
+package = "Features"
+php = "5.2.4"
+project = "opendeals_rules"
+; Information added by Drupal.org packaging script on 2014-11-02
+version = "7.x-1.35"
+core = "7.x"
+project = "opendeals"
+datestamp = "1414969175"
+

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Opendeals Defaults feature.
+ */
+
+include_once('opendeals_defaults.features.inc');
