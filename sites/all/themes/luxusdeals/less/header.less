@@ -1,5 +1,9 @@
 // Insert your styling here.
 
+header {
+  margin-bottom: 45px;
+}
+
 a {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -35,17 +39,31 @@ body.navbar-is-fixed-top {
   padding-top: 96px !important;
 }
 
-.navbar-fixed-top {
-  border-bottom: 0;
+body.admin-menu.navbar-is-fixed-top {
+  padding-top: 100px !important;
 }
 
 
+.navbar .logo {
+  margin: 24px 0;
+  img {
+    max-width: 150px;
+  }
+}
+
 .navbar-default {
+  background-color: #ffffff;
+  border-color: transparent;
+  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+
   .navbar-nav > li > a {
     font-family: 'Helia-Regular';
     font-size: 16px;
     text-transform: uppercase;
-    padding: 22px 15px;
+    padding: 25px 15px 20px 15px;
   }
   .navbar-nav > .active > a,
   .navbar-nav > .active > a:hover,
@@ -54,6 +72,7 @@ body.navbar-is-fixed-top {
   }
   .call-to-action {
     margin: 14px 0;
+    padding: 5px 15px;
     height: 40px;
     font-size: 16px;
     text-transform: uppercase;
@@ -72,5 +91,9 @@ body.navbar-is-fixed-top {
     span {
       font-family: 'Helia-Regular';
     }
+  }
+
+  ul.secondary {
+    display: none;
   }
 }
