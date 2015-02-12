@@ -8,9 +8,9 @@ footer {
 }
 footer .footer-image {
   background-image: url("../images/logogray.png");
-  width: 150px;
-  height: 19px;
-  max-width: 150px;
+  width: 160px;
+  height: 23px;
+  max-width: 160px;
   background-size: cover;
   background-position: 50%;
   margin: 0 auto;

@@ -120,7 +120,7 @@
           <?php if (!empty($page['navigation'])): ?>
             <?php print render($page['navigation']); ?>
           <?php endif; ?>
-          <button type="button" class="btn btn-success pull-right call-to-action">Tilmeld. <span>Spar 10%</span></button>
+          <button type="button" class="btn btn-success pull-right call-to-action"><i class="fa fa-user-plus"></i> Tilmeld. <span>Spar 10%</span></button>
         </nav>
       </div>
     <?php endif; ?>
