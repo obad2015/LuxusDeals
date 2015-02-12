@@ -134,8 +134,7 @@
   </div>
 </div>
 
-<div class="main-container container">
-
+<div class="container-fluid">
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>
       <p class="lead"><?php print $site_slogan; ?></p>
@@ -143,6 +142,11 @@
 
     <?php print render($page['header']); ?>
   </header>
+</div>
+
+<div class="main-container container">
+
+
   <!-- /#page-header -->
 
   <div class="row">
