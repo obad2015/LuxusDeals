@@ -7208,11 +7208,11 @@ footer .footer-image {
 }
 footer .address {
   text-align: center;
-  color: #666666;
+  color: #fff;
   text-transform: uppercase;
 }
 footer .address a {
-  color: #666666;
+  color: #fff;
 }
 footer .payment {
   background-image: url("../images/payment.png");
