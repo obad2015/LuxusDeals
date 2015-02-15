@@ -134,7 +134,7 @@
   </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid slide">
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>
       <p class="lead"><?php print $site_slogan; ?></p>
