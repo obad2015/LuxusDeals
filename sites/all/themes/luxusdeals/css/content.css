@@ -1,3 +1,57 @@
+.front .view-filters {
+  display: none;
+}
 .main-container {
   overflow: hidden;
+  margin: 30px auto;
+}
+.main-container .page-header {
+  padding-bottom: 9px;
+  text-align: center;
+  border: 0;
+}
+.main-container .view-ld-deals .col {
+  position: relative;
+  margin-bottom: 25px;
+}
+.main-container .view-ld-deals .col img {
+  width: 100%;
+}
+.main-container .view-ld-deals .col .views-field-field-category {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #333;
+  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+}
+.main-container .view-ld-deals .col .views-field-field-category a {
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.main-container .view-ld-deals .col .views-field-field-category a:hover {
+  text-decoration: none;
+}
+.main-container .view-ld-deals .col .views-field-field-short-title a {
+  font-family: 'Helia-Regular';
+  font-size: 20px;
+  color: #000000;
+  margin-top: 10px;
+  display: block;
+}
+.main-container .view-ld-deals .col .views-field-field-short-title a:hover {
+  text-decoration: none;
+}
+.main-container .view-ld-deals .col .views-field-title a {
+  font-family: 'Helia-Regular';
+  font-size: 14px;
+  color: #999;
+  display: block;
+  margin-bottom: 25px;
+}
+.main-container .view-ld-deals .col .views-field-title a:hover {
+  text-decoration: none;
 }

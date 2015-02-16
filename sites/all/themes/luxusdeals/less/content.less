@@ -1,4 +1,70 @@
 // Insert your styling here.
+.front {
+  .view-filters {
+    display: none;
+  }
+}
+
 .main-container {
   overflow: hidden;
+  margin: 30px auto;
+
+  .page-header {
+    padding-bottom: 9px;
+    text-align: center;
+    border: 0;
+  }
+
+  .view-ld-deals {
+    .col {
+      position: relative;
+      margin-bottom: 25px;
+      img {
+        width: 100%;
+      }
+      .views-field-field-category {
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        background-color: #333;
+        background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+        background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+        background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+        a {
+          color: #fff;
+          font-size: 12px;
+          letter-spacing: 1px;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .views-field-field-short-title {
+        a {
+          font-family: 'Helia-Regular';
+          font-size: 20px;
+          color: #000000;
+          margin-top: 10px;
+          display: block;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+      .views-field-title {
+        a {
+          font-family: 'Helia-Regular';
+          font-size: 14px;
+          color: #999;
+          display: block;
+          margin-bottom: 25px;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
 }

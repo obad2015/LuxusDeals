@@ -1,18 +1,5 @@
 // Insert your styling here.
 
-.slide {
-  padding: 0;
-  position: relative;
-  height: 580px;
-  margin-bottom: 45px;
-  .carousel-inner {
-    height: 580px;
-    overflow: visible;
-    .item {
-    }
-  }
-}
-
 header {
   margin-bottom: 45px;
 
@@ -44,7 +31,7 @@ header {
     }
     .call-to-action {
       margin: 14px 0;
-      padding: 5px 15px;
+      padding: 5px 22px;
       height: 40px;
       font-size: 16px;
       text-transform: uppercase;
@@ -105,4 +92,175 @@ a {
 body.navbar-is-fixed-top,
 body.admin-menu.navbar-is-fixed-top {
   padding-top: 101px !important;
+}
+.front {
+  background-color: #f0f0f0;
+  .slide {
+    height: 580px;
+  }
+}
+.slide {
+  padding: 0;
+  overflow: hidden;
+
+  #block-views-slideshow-block {
+    height: 580px;
+
+    .view-slideshow {
+      position: relative;
+
+      .carousel-indicators {
+        bottom: 10px;
+      }
+
+      .attachment {
+        background-color: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        bottom: 60px;
+        width: 100%;
+        color: #fff;
+        padding: 25px 0;
+        height: 160px;
+
+        .col-lg-12 {
+          width: 1140px;
+          margin: 0 auto;
+          padding: 0;
+          float: none;
+
+          .info {
+            width: 940px;
+            float: left;
+            .title {
+              display: block;
+              a {
+                font-family: 'Helia-Regular';
+                font-size: 40px;
+                letter-spacing: 1px;
+                text-decoration: none;
+                text-transform: uppercase;
+                color: #fff;
+              }
+            }
+            .description {
+              .count-down {
+                width: 270px;
+                overflow: visible !important;
+                float: left;
+                &:before {
+                  content: "\f017";
+                }
+              }
+              .company {
+                width: 170px;
+                &:before {
+                  content: "\f041";
+                }
+              }
+              .sales {
+                width: 130px;
+                overflow: visible !important;
+                &:before {
+                  content: "\f0c0";
+                }
+              }
+
+              .count-down,
+              .company,
+              .sales {
+                display: inline-block;
+                margin-right: 30px;
+                font-size: 16px;
+                font-family: 'Helia-Regular';
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                float: left;
+
+                &:before {
+                  font-family: FontAwesome;
+                  text-rendering: auto;
+                  -webkit-font-smoothing: antialiased;
+                  -moz-osx-font-smoothing: grayscale;
+                  font-size: 18px;
+                  float: left;
+                  border: 1px solid #999;
+                  width: 40px;
+                  height: 40px;
+                  line-height: 39px;
+                  text-align: center;
+                  border-radius: 100px;
+                  margin-right: 10px;
+                }
+
+                span.count-down,
+                span.Company,
+                span.sales {
+                  &:before {
+                    display: none;
+                  }
+                  float: none;
+                  font-family: 'Helia-Light';
+                  display: block;
+                  color: #CCCCCC;
+                }
+              }
+              .count-down {
+                span {
+                  font-family: 'Helia-Regular';
+                  span {
+                    color: #BFFF00;
+                  }
+                }
+              }
+            }
+          }
+
+          .views-field-commerce-price {
+            float: right;
+            .price-outer {
+              background-color: rgba(119, 165, 0, 0.5);
+              border-radius: 100px;
+              width: 200px;
+              height: 200px;
+              position: relative;
+              right: 0;
+              top: -45px;
+              .price-inner {
+                background-color: rgba(119, 165, 0, 1);
+                border-radius: 100px;
+                width: 140px;
+                height: 140px;
+                position: relative;
+                top: 28px;
+                margin: 0px auto;
+                background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+                background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+                background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+                background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+
+                .before-price {
+                  text-align: center;
+                  padding-top: 25px;
+                  padding-bottom: 5px;
+                  font-size: 16px;
+                }
+                .now-price {
+                  font-family: 'Helia-Bold';
+                  text-align: center;
+                  font-size: 40px;
+                  line-height: 40px;
+                }
+                .procent {
+                  text-align: center;
+                  font-size: 16px;
+                }
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
