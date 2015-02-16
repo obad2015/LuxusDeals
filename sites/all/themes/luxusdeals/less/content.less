@@ -1,8 +1,29 @@
 // Insert your styling here.
+
+// Links.
+a {
+  text-decoration: none;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+
+  &:hover {
+    color: @link-color;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    text-decoration: none;
+  }
+}
+
 .front {
   .view-filters {
     display: none;
   }
+}
+
+.page-all-deals {
+  background-color: #f0f0f0;
 }
 
 .main-container {
@@ -67,4 +88,35 @@
       }
     }
   }
+  .well {padding-bottom: 0;
+    #block-views-product-categories-block {
+      h2 {
+        font-size: 20px;
+        margin-bottom: 25px;
+      }
+      .view-product-categories {
+        .views-field {
+          a {
+            color: #333;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid #DDDDDD;
+            display: block;
+            padding-bottom: 5px;
+            margin-bottom: 8px;
+
+            i {
+              width: 25px;
+              font-size: 18px;
+              vertical-align: top;
+            }
+          }
+        }
+        .views-row-last .views-field span a {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+
 }

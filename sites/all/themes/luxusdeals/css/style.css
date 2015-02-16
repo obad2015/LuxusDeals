@@ -7357,8 +7357,24 @@ body.admin-menu.navbar-is-fixed-top {
   text-align: center;
   font-size: 16px;
 }
+a {
+  text-decoration: none;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+a:hover {
+  color: #70a000;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  text-decoration: none;
+}
 .front .view-filters {
   display: none;
+}
+.page-all-deals {
+  background-color: #f0f0f0;
 }
 .main-container {
   overflow: hidden;
@@ -7413,6 +7429,30 @@ body.admin-menu.navbar-is-fixed-top {
 }
 .main-container .view-ld-deals .col .views-field-title a:hover {
   text-decoration: none;
+}
+.main-container .well {
+  padding-bottom: 0;
+}
+.main-container .well #block-views-product-categories-block h2 {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+.main-container .well #block-views-product-categories-block .view-product-categories .views-field a {
+  color: #333;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid #DDDDDD;
+  display: block;
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+}
+.main-container .well #block-views-product-categories-block .view-product-categories .views-field a i {
+  width: 25px;
+  font-size: 18px;
+  vertical-align: top;
+}
+.main-container .well #block-views-product-categories-block .view-product-categories .views-row-last .views-field span a {
+  border-bottom: 0;
 }
 footer {
   background-color: #333333;
