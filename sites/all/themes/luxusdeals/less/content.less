@@ -9,7 +9,6 @@ a {
   transition: all .3s;
 
   &:hover {
-    color: @link-color;
     opacity: 0.7;
     filter: alpha(opacity=70);
     text-decoration: none;
@@ -38,57 +37,82 @@ a {
 
   .view-ld-deals {
     .col {
-      position: relative;
-      margin-bottom: 25px;
-      img {
-        width: 100%;
-      }
-      .views-field-field-category {
-        width: 100%;
-        text-align: center;
-        text-transform: uppercase;
-        background-color: #333;
-        background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
-        background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
-        background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
-        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
-        a {
-          color: #fff;
-          font-size: 12px;
-          letter-spacing: 1px;
-          &:hover {
-            text-decoration: none;
+      .thumbnail {
+        padding: 0;
+        .image {
+          position: relative;
+          a {
+            &:hover {
+              opacity: 1;
+            }
+            img {
+              width: 100%;
+            }
+            .category {
+              font-family: 'Helia-Regular';
+              position: absolute;
+              bottom: 15px;
+              border-radius: 4px;
+              text-transform: uppercase;
+              background-color: rgba(0, 0, 0, 0.7);
+              color: #fff;
+              font-size: 12px;
+              padding: 10px 10px;
+              height: 18px;
+              line-height: 3px;
+              margin: 0 auto;
+              width: 80px;
+              left: 34%;
+              text-align: center;
+            }
           }
         }
-      }
+        .caption {
+          width: 100%;
+          display: inline-block;
+          font-family: 'Helia-Regular';
 
-      .views-field-field-short-title {
-        a {
-          font-family: 'Helia-Regular';
-          font-size: 20px;
-          color: #000000;
-          margin-top: 10px;
-          display: block;
-          &:hover {
-            text-decoration: none;
+
+          .short-title {
+            font-size: 18px;
           }
-        }
-      }
-      .views-field-title {
-        a {
-          font-family: 'Helia-Regular';
-          font-size: 14px;
-          color: #999;
-          display: block;
-          margin-bottom: 25px;
-          &:hover {
-            text-decoration: none;
+          .company a {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+
+          }
+
+          .left-box {
+            margin-top: 27px;
+            text-align: left;
+          }
+
+          .right-box {
+            margin-top: 20px;
+            text-align: right;
+          }
+
+          .left-box,
+          .right-box {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+
+            .now-price {
+              font-family: 'Helia-Bold';
+              font-size: 24px;
+              line-height: 24px;
+              color: #70a000;
+            }
           }
         }
       }
     }
   }
-  .well {padding-bottom: 0;
+
+  .well {
+    padding-bottom: 0;
     #block-views-product-categories-block {
       h2 {
         font-size: 20px;
