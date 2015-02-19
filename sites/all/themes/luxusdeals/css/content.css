@@ -6,8 +6,6 @@ a {
   transition: all .3s;
 }
 a:hover {
-  opacity: 0.7;
-  filter: alpha(opacity=70);
   text-decoration: none;
 }
 .front .view-filters {
@@ -119,23 +117,18 @@ a:hover {
 }
 .main-container .well {
   padding-bottom: 0;
-  background-color: #333;
+  background-color: #fff;
   border: 0;
-  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
-  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
-  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
 }
 .main-container .well #block-views-product-categories-block h2 {
-  color: #92C718;
   font-size: 20px;
   margin-bottom: 25px;
 }
 .main-container .well #block-views-product-categories-block .view-product-categories .views-field a {
-  color: #fff;
+  color: #333;
   text-transform: uppercase;
   text-decoration: none;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #eeeeee;
   display: block;
   padding-bottom: 5px;
   margin-bottom: 8px;
@@ -144,6 +137,9 @@ a:hover {
   width: 25px;
   font-size: 18px;
   vertical-align: top;
+}
+.main-container .well #block-views-product-categories-block .view-product-categories .views-field a:hover {
+  color: #70a000;
 }
 .main-container .well #block-views-product-categories-block .view-product-categories .views-row-last .views-field span a {
   border-bottom: 0;

@@ -9,8 +9,6 @@ a {
   transition: all .3s;
 
   &:hover {
-    opacity: 0.7;
-    filter: alpha(opacity=70);
     text-decoration: none;
   }
 }
@@ -141,26 +139,21 @@ a {
 
   .well {
     padding-bottom: 0;
-    background-color: #333;
+    background-color: #fff;
     border: 0;
-    background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
-    background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
-    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
 
     #block-views-product-categories-block {
       h2 {
-        color: #92C718;
         font-size: 20px;
         margin-bottom: 25px;
       }
       .view-product-categories {
         .views-field {
           a {
-            color: #fff;
+            color: #333;
             text-transform: uppercase;
             text-decoration: none;
-            border-bottom: 1px solid #444;
+            border-bottom: 1px solid #eeeeee;
             display: block;
             padding-bottom: 5px;
             margin-bottom: 8px;
@@ -170,6 +163,9 @@ a {
               font-size: 18px;
               vertical-align: top;
 
+            }
+            &:hover {
+              color: #70a000;
             }
           }
         }
