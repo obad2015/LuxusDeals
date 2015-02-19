@@ -6,6 +6,9 @@ footer {
   background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
 }
+footer.footer {
+  margin-top: 0;
+}
 footer .footer-image {
   background-image: url("../images/logogray.png");
   width: 160px;

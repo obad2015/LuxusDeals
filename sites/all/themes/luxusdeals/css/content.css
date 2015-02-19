@@ -18,7 +18,7 @@ a:hover {
 }
 .main-container {
   overflow: hidden;
-  margin: 30px auto;
+  margin: 25px auto 0 auto;
 }
 .main-container .page-header {
   padding-bottom: 9px;
@@ -26,7 +26,26 @@ a:hover {
   border: 0;
 }
 .main-container .view-ld-deals .col .thumbnail {
+  cursor: pointer;
   padding: 0;
+  border-radius: 0;
+  border: 0;
+  overflow: hidden;
+  margin-bottom: 25px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.main-container .view-ld-deals .col .thumbnail:hover {
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
 }
 .main-container .view-ld-deals .col .thumbnail .image {
   position: relative;
@@ -39,8 +58,6 @@ a:hover {
 }
 .main-container .view-ld-deals .col .thumbnail .image a .category {
   font-family: 'Helia-Regular';
-  position: absolute;
-  bottom: 15px;
   border-radius: 4px;
   text-transform: uppercase;
   background-color: rgba(0, 0, 0, 0.7);
@@ -49,9 +66,12 @@ a:hover {
   padding: 10px 10px;
   height: 18px;
   line-height: 3px;
-  margin: 0 auto;
-  width: 80px;
-  left: 34%;
+  width: auto;
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
   text-align: center;
 }
 .main-container .view-ld-deals .col .thumbnail .caption {
@@ -61,6 +81,15 @@ a:hover {
 }
 .main-container .view-ld-deals .col .thumbnail .caption .short-title {
   font-size: 18px;
+  text-align: center;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.main-container .view-ld-deals .col .thumbnail .caption .company {
+  line-height: 14px;
+  text-align: center;
 }
 .main-container .view-ld-deals .col .thumbnail .caption .company a {
   font-size: 12px;
@@ -90,16 +119,23 @@ a:hover {
 }
 .main-container .well {
   padding-bottom: 0;
+  background-color: #333;
+  border: 0;
+  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
 }
 .main-container .well #block-views-product-categories-block h2 {
+  color: #92C718;
   font-size: 20px;
   margin-bottom: 25px;
 }
 .main-container .well #block-views-product-categories-block .view-product-categories .views-field a {
-  color: #333;
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 1px solid #444;
   display: block;
   padding-bottom: 5px;
   margin-bottom: 8px;
@@ -111,4 +147,55 @@ a:hover {
 }
 .main-container .well #block-views-product-categories-block .view-product-categories .views-row-last .views-field span a {
   border-bottom: 0;
+}
+.main-container .pager {
+  margin: 0;
+}
+.main-container .pager li > a {
+  border: 0;
+  color: #fff;
+  border-radius: 0;
+  padding: 5px 22px;
+  height: 40px;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 33px;
+  background-color: #999;
+  border-color: transparent;
+  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+}
+.main-container .pager li > a:hover {
+  color: #fff;
+  opacity: 1;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+}
+.deal-button-wrapper .col .view-all-deals {
+  border: 0;
+  border-radius: 0;
+  padding: 5px 22px;
+  height: 40px;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 33px;
+  background-color: #999;
+  border-color: transparent;
+  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+}
+.deal-button-wrapper .col .view-all-deals:hover {
+  opacity: 1;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+}
+.partners {
+  background-color: #fff;
+  margin: 25px auto 0 auto;
+  padding: 30px 0;
+}
+.partners h2 {
+  margin-top: 10px;
 }

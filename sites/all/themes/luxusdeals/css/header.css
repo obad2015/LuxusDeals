@@ -28,11 +28,13 @@ header.navbar-default .navbar-nav > .active > a:focus {
 }
 header.navbar-default .call-to-action {
   margin: 14px 0;
+  border: 0;
+  border-radius: 0;
   padding: 5px 22px;
   height: 40px;
   font-size: 16px;
   text-transform: uppercase;
-  line-height: 30px;
+  line-height: 33px;
   background-color: #77A500;
   border-color: transparent;
   background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
@@ -220,8 +222,12 @@ body.admin-menu.navbar-is-fixed-top {
   width: 200px;
   height: 200px;
   position: relative;
-  right: 0;
+  right: 0px;
   top: -45px;
+  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
 }
 .slide #block-views-slideshow-block .view-slideshow .attachment .col-lg-12 .views-field-commerce-price .price-outer .price-inner {
   background-color: #77a500;

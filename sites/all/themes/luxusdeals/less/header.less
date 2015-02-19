@@ -31,11 +31,13 @@ header {
     }
     .call-to-action {
       margin: 14px 0;
+      border:0;
+      border-radius: 0;
       padding: 5px 22px;
       height: 40px;
       font-size: 16px;
       text-transform: uppercase;
-      line-height: 30px;
+      line-height: 33px;
       background-color: #77A500;
       border-color: transparent;
       background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
@@ -93,12 +95,14 @@ body.navbar-is-fixed-top,
 body.admin-menu.navbar-is-fixed-top {
   padding-top: 101px !important;
 }
+
 .front {
   background-color: #f0f0f0;
   .slide {
     height: 580px;
   }
 }
+
 .slide {
   padding: 0;
   overflow: hidden;
@@ -224,8 +228,12 @@ body.admin-menu.navbar-is-fixed-top {
               width: 200px;
               height: 200px;
               position: relative;
-              right: 0;
+              right: 0px;
               top: -45px;
+              background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+              background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+              background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+              background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
               .price-inner {
                 background-color: rgba(119, 165, 0, 1);
                 border-radius: 100px;

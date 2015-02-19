@@ -120,7 +120,10 @@
           <?php if (!empty($page['navigation'])): ?>
             <?php print render($page['navigation']); ?>
           <?php endif; ?>
-          <button type="button" class="btn btn-success pull-right call-to-action"><i class="fa fa-user-plus"></i> Tilmeld. <span>Spar 10%</span></button>
+          <button type="button"
+                  class="btn btn-success pull-right call-to-action"><i
+              class="fa fa-user-plus"></i> Tilmeld. <span>Spar 10%</span>
+          </button>
         </nav>
       </div>
     <?php endif; ?>
@@ -187,7 +190,14 @@
         <?php print render($page['sidebar_second']); ?>
       </aside>  <!-- /#sidebar-second -->
     <?php endif; ?>
-
+  </div>
+</div>
+<div class="partners">
+  <div class="container">
+    <h2 class="text-center" style="padding: 0 200px;">
+    Vi samarbejder med de bedste virksomheder over
+    hele landet for at levere dig de billigeste og nyeste deals.
+    </h2>
   </div>
 </div>
 
