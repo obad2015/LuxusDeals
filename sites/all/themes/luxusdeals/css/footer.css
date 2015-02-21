@@ -8,6 +8,7 @@ footer {
 }
 footer.footer {
   margin-top: 0;
+  border-top: 0;
 }
 footer .footer-image {
   background-image: url("../images/logogray.png");
