@@ -7380,7 +7380,7 @@ a:hover {
   text-decoration: none;
 }
 .front .view-filters {
-  display: none;
+  display: none !important;
 }
 .page-last-chance,
 .page-taxonomy,
@@ -7392,8 +7392,27 @@ a:hover {
 .page-all-deals .page-header {
   display: none;
 }
+.node-type-deal .main-container .page-header {
+  display: none;
+}
+.node-type-deal .main-container .bootstrap-twocol-stacked {
+  margin-top: 50px;
+}
+.node-type-deal .main-container img.static_google_map {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.node-type-deal .main-container .addressfield-container-inline.name-block {
+  font-family: 'Helia-Regular';
+}
 .views-widget-sort-order {
   display: none;
+}
+.breadcrumb {
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
 .main-container {
   overflow: hidden;

@@ -15,7 +15,7 @@ a {
 
 .front {
   .view-filters {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -28,8 +28,35 @@ a {
   }
 }
 
+.node-type-deal {
+  .main-container {
+    .page-header {
+      display: none;
+    }
+    .bootstrap-twocol-stacked {
+      margin-top: 50px;
+    }
+
+    img.static_google_map {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .addressfield-container-inline.name-block {
+      font-family: 'Helia-Regular';
+    }
+  }
+}
+
 .views-widget-sort-order {
   display: none;
+}
+
+.breadcrumb {
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
 
 .main-container {
