@@ -7110,6 +7110,7 @@ header.navbar-default {
   background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
   background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  border-bottom: 0;
 }
 header.navbar-default .logo {
   margin: 23px 0;
@@ -7183,7 +7184,7 @@ a {
 }
 body.navbar-is-fixed-top,
 body.admin-menu.navbar-is-fixed-top {
-  padding-top: 101px !important;
+  padding-top: 100px !important;
 }
 .front {
   background-color: #f0f0f0;
@@ -7386,9 +7387,49 @@ a:hover {
 .page-all-deals {
   background-color: #f0f0f0;
 }
+.page-last-chance .page-header,
+.page-taxonomy .page-header,
+.page-all-deals .page-header {
+  display: none;
+}
+.views-widget-sort-order {
+  display: none;
+}
 .main-container {
   overflow: hidden;
   margin: 25px auto 0 auto;
+}
+.main-container .view-header {
+  width: 50%;
+  display: inline-block;
+  float: left;
+  padding: 15px 0;
+}
+.main-container .view-filters {
+  width: 50%;
+  display: inline-block;
+}
+.main-container .view-filters .views-widget-sort-by {
+  padding-right: 0;
+  width: 200px;
+  float: right;
+}
+.main-container .view-filters .views-widget-sort-by label {
+  color: #999;
+  margin-right: 5px;
+  margin-bottom: 0;
+  padding: 7px 0;
+  text-transform: uppercase;
+}
+.main-container .view-filters .views-widget-sort-by .form-group {
+  float: right;
+}
+.main-container .view-filters .views-widget-sort-by .form-group select {
+  border: 0;
+  text-transform: uppercase;
+  width: 100px;
+  float: right;
+  box-shadow: none;
 }
 .main-container .page-header {
   padding-bottom: 9px;
@@ -7399,6 +7440,7 @@ a:hover {
   padding-bottom: 0;
   background-color: #fff;
   border: 0;
+  box-shadow: none;
 }
 .main-container .well #block-views-product-categories-block h2 {
   font-size: 20px;
@@ -7418,6 +7460,7 @@ a:hover {
   font-size: 18px;
   vertical-align: top;
 }
+.main-container .well #block-views-product-categories-block .view-product-categories .views-field a.active,
 .main-container .well #block-views-product-categories-block .view-product-categories .views-field a:hover {
   color: #70a000;
 }
