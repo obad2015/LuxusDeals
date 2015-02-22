@@ -143,6 +143,10 @@
       <p class="lead"><?php print $site_slogan; ?></p>
     <?php endif; ?>
 
+    <?php if (!empty($top_image)): ?>
+      <img src="<?php print $top_image; ?>" />
+    <?php endif; ?>
+
     <?php print render($page['header']); ?>
   </header>
 </div>

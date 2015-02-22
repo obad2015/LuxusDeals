@@ -1,0 +1,108 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Obad
+ * Date: 22/02/15
+ * Time: 12:02
+ */
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function misc_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'views_exposed_form') {
+    $form['#attributes']['class'][] = 'form-inline';
+  }
+}
+
+
+/**
+ * Implements hook_views_post_render().
+ *
+ * set breadcrumb for all deals and last chance.
+ */
+function misc_views_post_render(&$view, &$output, &$cache) {
+  if ($view->name == 'ld_deals') {
+    if ($view->current_display == 'all_deals') {
+      // Build Breadcrumbs
+      $breadcrumb = array();
+      $breadcrumb[] = l('HJEM', '<front>');
+      $breadcrumb[] = 'FIND TILBUD';
+
+      // Set Breadcrumbs
+      drupal_set_breadcrumb($breadcrumb);
+
+      $GLOBALS['top_bar_image'] = $view->name . '-' . $view->current_display;
+    }
+
+    if ($view->current_display == 'last_chance_deals') {
+      $breadcrumb = array();
+      $breadcrumb[] = l('HJEM', '<front>');
+      $breadcrumb[] = 'SIDSTE CHANCE';
+
+      // Set Breadcrumbs
+      drupal_set_breadcrumb($breadcrumb);
+
+      $GLOBALS['top_bar_image'] = $view->name . '-' . $view->current_display;
+    }
+  }
+}
+
+
+/**
+ * Implements hook_taxonomy_term_view_alter().
+ *
+ * set breadcrumb for taxonomy pages.
+ */
+function misc_taxonomy_term_view_alter(&$build) {
+  if ($build['#term']->vocabulary_machine_name == 'product_categories') {
+    // Build Breadcrumbs
+    $breadcrumb = array();
+    $breadcrumb[] = l('HJEM', '<front>');
+    $breadcrumb[] = l('FIND TILBUD', 'all-deals');
+    $breadcrumb[] = $build['#term']->name;
+
+    // Set Breadcrumbs
+    drupal_set_breadcrumb($breadcrumb);
+
+    $GLOBALS['top_bar_image'] = $build['#term']->vocabulary_machine_name . '-' . $build['#term']->tid;
+  }
+}
+
+
+/**
+ * Implements hook_node_view().
+ *
+ * set breadcrumb for deal nodes.
+ */
+function misc_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'deal' && node_is_page($node)) {
+    $breadcrumb = array();
+
+    // Add link to the homepage.
+    $breadcrumb[] = l('HJEM', '<front>');
+
+    // Find which view to relate to.
+    $date = new DateTime($node->field_timending['und'][0]['value'], new DateTimeZone($node->field_timending['und'][0]['timezone']));
+    if ($date->getTimestamp() > strtotime('now +1 day')) {
+      $breadcrumb[] = l('FIND TILBUD', 'all-deals');
+    }
+    elseif ($date->getTimestamp() > strtotime('now') && $date->getTimestamp() < strtotime('now +1 day')) {
+      $breadcrumb[] = l('SIDSTE CHANCE', 'all-deals');
+    }
+
+    // Find category.
+    $product = commerce_product_load($node->field_product['und'][0]['product_id']);
+    if (isset($product->field_category['und'][0]['taxonomy_term'])) {
+      $category = $product->field_category['und'][0]['taxonomy_term'];
+      $breadcrumb[] = l($category->name, 'taxonomy/term/' . $category->tid);
+    }
+    // Add the deal title.
+    $breadcrumb[] = $node->title;
+
+    // Set Breadcrumbs.
+    drupal_set_breadcrumb($breadcrumb);
+  }
+
+}
