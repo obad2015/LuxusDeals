@@ -144,10 +144,8 @@
     <?php endif; ?>
 
     <?php if (!empty($top_image)): ?>
-      <div class="cover-image" style="background-image: url('<?php print $top_image; ?>');">
-        <div class="overlay">
-          <h1 class="text-center"><?php print $title; ?></h1>
-        </div>
+      <div class="cover-image"
+           style="background-image: url('<?php print $top_image; ?>');">
       </div>
     <?php endif; ?>
 
@@ -175,13 +173,11 @@
       <?php endif; ?>
       <?php if (!empty($breadcrumb)): print $breadcrumb; endif; ?>
       <a id="main-content"></a>
-      <?php if (empty($top_image)): ?>
       <?php print render($title_prefix); ?>
       <?php if (!empty($title)): ?>
         <h1 class="page-header"><?php print $title; ?></h1>
       <?php endif; ?>
       <?php print render($title_suffix); ?>
-      <?php endif; ?>
       <?php print $messages; ?>
       <?php if (!empty($tabs)): ?>
         <?php print render($tabs); ?>
@@ -205,9 +201,11 @@
 <div class="partners">
   <div class="container">
     <h3 class="text-center">
-    LuxusDeal samarbejder med de bedste virksomheder over
-    hele Danmark for at levere dig de billigeste og nyeste deals. <span class="membership">Gør et kup! Tilmeld dit medlemskab idag og <b>få yderligere 10% i rabat på regningen</b>, når du handler hos os.</span>
-    </h2>
+      LuxusDeal samarbejder med de bedste virksomheder over
+      hele Danmark for at levere dig de billigeste og nyeste deals. <span
+        class="membership">Gør et kup! Tilmeld dit medlemskab idag og <b>få
+          yderligere 10% i rabat på regningen</b>, når du handler hos os.</span>
+      </h2>
   </div>
 </div>
 
