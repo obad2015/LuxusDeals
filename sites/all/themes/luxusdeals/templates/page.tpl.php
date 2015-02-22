@@ -122,7 +122,7 @@
           <?php endif; ?>
           <button type="button"
                   class="btn btn-success pull-right call-to-action"><i
-              class="fa fa-user-plus"></i> Tilmeld. <span>Spar 10%</span>
+              class="fa fa-user-plus"></i> Tilmeld. <span>Spar +15%</span>
           </button>
         </nav>
       </div>
@@ -202,9 +202,9 @@
   <div class="container">
     <h3 class="text-center">
       Vi samarbejder med de bedste virksomheder over
-      hele Danmark for at levere dig de billigeste og nyeste deals. <span
+      hele Danmark for at levere dig de billigeste og nyeste deals. <br/> <span
         class="membership">Gør et kup! Tilmeld dit medlemskab idag og <b>få
-          yderligere 10% i rabat på regningen</b>, når du handler hos os.</span>
+          yderligere +15% i rabat på regningen</b>, når du handler hos os.</span>
       </h2>
   </div>
 </div>
