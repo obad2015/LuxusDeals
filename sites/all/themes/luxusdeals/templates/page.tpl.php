@@ -76,15 +76,17 @@
 
 
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
-  <div class="container">
-    <div id="top-header">
+
+  <div id="top-header">
+    <div class="container">
       <ul class="pull-right">
         <li><a href="#">Handelsbetingelser</a></li>
-        <li><a href="#">Cookie- og privatlivspolitik</a></li>
         <li><a href="#">Om Luxusdeals</a></li>
         <li><a href="#">Følg os på Facebook</a></li>
       </ul>
     </div>
+  </div>
+  <div class="container">
     <div class="navbar-header">
       <?php if ($logo): ?>
         <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>"
@@ -155,7 +157,6 @@
 
 <div class="main-container container">
 
-
   <!-- /#page-header -->
 
   <div class="row">
@@ -204,7 +205,8 @@
       Vi samarbejder med de bedste virksomheder over
       hele Danmark for at levere dig de billigeste og nyeste deals. <br/> <span
         class="membership">Gør et kup! Tilmeld dit medlemskab idag og <b>få
-          yderligere +15% i rabat på regningen</b>, når du handler hos os.</span>
+          yderligere +15% i rabat på
+          regningen</b>, når du handler hos os.</span>
       </h2>
   </div>
 </div>

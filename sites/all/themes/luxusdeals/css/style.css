@@ -7118,6 +7118,22 @@ header.navbar-default .logo {
 header.navbar-default .logo img {
   max-width: 160px;
 }
+header.navbar-default .navbar-nav > li.first a:before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  padding-right: 0.5em;
+}
+header.navbar-default .navbar-nav > li.last a:before {
+  content: "\f0e3";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  padding-right: 0.5em;
+}
 header.navbar-default .navbar-nav > li > a {
   font-family: 'Helia-Regular';
   font-size: 16px;
@@ -7160,9 +7176,128 @@ a {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
+@media (max-width: 768px) {
+  #top-header ul {
+    text-align: center;
+    float: none !important;
+  }
+  #top-header ul li:first-child a {
+    border-left: 0;
+    padding: 0;
+    margin: 0;
+  }
+  header.navbar-default .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  header.navbar-default .call-to-action {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+@media (max-width: 1200px) {
+  .slide section .view-slideshow .attachment .col-lg-12 {
+    margin: 25px auto 0 auto;
+    width: 970px !important;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .slide section .view-slideshow .attachment .col-lg-12 .info {
+    width: inherit !important;
+  }
+  .slide section .view-slideshow .attachment .col-lg-12 .info .title {
+    width: 740px !important;
+    line-height: inherit;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 992px) {
+  .slide section .view-slideshow {
+    height: 530px;
+  }
+  .slide section .view-slideshow .attachment {
+    top: 0;
+    width: 100% !important;
+    height: 580px !important;
+  }
+  .slide section .view-slideshow .attachment .view-content {
+    height: 530px;
+  }
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style {
+    height: 530px;
+  }
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row {
+    height: 530px;
+  }
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 {
+    width: 100% !important;
+    height: 530px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info {
+    width: inherit !important;
+  }
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .title {
+    line-height: 40px;
+    width: inherit !important;
+    text-align: center;
+    white-space: normal;
+  }
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .title a {
+    display: inline-block !important;
+  }
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .count-down,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .company,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .sales {
+    text-align: center;
+    float: none !important;
+    display: block !important;
+    width: 100% !important;
+    margin: 10px 0 !important;
+  }
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .count-down .count-down,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .company .count-down,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .sales .count-down,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .count-down .company,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .company .company,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .sales .company,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .count-down .sales,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .company .sales,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .sales .sales {
+    margin: 0 !important;
+  }
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .count-down:before,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .company:before,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .sales:before {
+    float: none !important;
+    display: none !important;
+  }
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .count-down span:before,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .company span:before,
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .info .description .sales span:before {
+    display: none !important;
+  }
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .views-field-commerce-price {
+    width: 100%;
+  }
+  .slide section .view-slideshow .attachment .view-content .views-bootstrap-grid-plugin-style .row .col-lg-12 .views-field-commerce-price .price-outer {
+    position: static !important;
+    margin: 10px auto;
+  }
+}
+@media (max-width: 400px) {
+  .slide section .view-slideshow .attachment .col-lg-12 .info .title a {
+    font-size: 30px !important;
+    line-height: 30px !important;
+    display: inline-block !important;
+  }
+}
 #top-header {
   background-color: #333333;
-  box-shadow: -900px 0 #333333, 900px 0 #333333;
   height: 32px;
   color: #fff;
 }
@@ -7230,7 +7365,6 @@ body.admin-menu.navbar-is-fixed-top {
 .slide section .view-slideshow .attachment .col-lg-12 .info .title a {
   font-family: 'Helia-Regular';
   font-size: 40px;
-  letter-spacing: 1px;
   text-decoration: none;
   text-transform: uppercase;
   color: #fff;
@@ -7347,8 +7481,8 @@ body.admin-menu.navbar-is-fixed-top {
 }
 .slide section .view-slideshow .attachment .col-lg-12 .views-field-commerce-price .price-outer .price-inner .before-price {
   text-align: center;
-  padding-top: 50px;
-  padding-bottom: 10px;
+  padding-top: 45px;
+  padding-bottom: 15px;
   font-size: 16px;
 }
 .slide section .view-slideshow .attachment .col-lg-12 .views-field-commerce-price .price-outer .price-inner .now-price {
@@ -7359,8 +7493,15 @@ body.admin-menu.navbar-is-fixed-top {
   margin-bottom: 5px;
 }
 .slide section .view-slideshow .attachment .col-lg-12 .views-field-commerce-price .price-outer .price-inner .procent {
+  font-family: 'Helia-Regular';
   text-align: center;
-  font-size: 16px;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  width: 80px;
+  padding: 4px 4px 2px;
+  line-height: 20px;
+  border-radius: 4px;
+  margin: 10px auto 0 auto;
 }
 .slide header .cover-image {
   height: 200px;

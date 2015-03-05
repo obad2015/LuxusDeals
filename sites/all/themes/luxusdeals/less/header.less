@@ -19,11 +19,40 @@ header {
       }
     }
 
-    .navbar-nav > li > a {
-      font-family: 'Helia-Regular';
-      font-size: 16px;
-      text-transform: uppercase;
-      padding: 25px 15px 20px 15px;
+    .navbar-nav {
+      > li {
+        &.first {
+          a {
+            &:before {
+              content: "\f002";
+              font-family: FontAwesome;
+              font-style: normal;
+              font-weight: normal;
+              text-decoration: inherit;
+              padding-right: 0.5em;
+            }
+          }
+        }
+
+        &.last {
+          a {
+            &:before {
+              content: "\f0e3";
+              font-family: FontAwesome;
+              font-style: normal;
+              font-weight: normal;
+              text-decoration: inherit;
+              padding-right: 0.5em;
+            }
+          }
+        }
+        > a {
+          font-family: 'Helia-Regular';
+          font-size: 16px;
+          text-transform: uppercase;
+          padding: 25px 15px 20px 15px;
+        }
+      }
     }
     .navbar-nav > .active > a,
     .navbar-nav > .active > a:hover,
@@ -68,9 +97,166 @@ a {
   transition: all 0.3s;
 }
 
+@media (max-width: 768px) {
+  #top-header {
+    ul {
+      text-align: center;
+      float: none !important;
+      li {
+        &:first-child {
+          a {
+            border-left: 0;
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  header.navbar-default {
+    .navbar-nav {
+      > li {
+        > a {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+      }
+    }
+    .call-to-action {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .slide {
+    section {
+      .view-slideshow {
+        .attachment {
+          .col-lg-12 {
+            margin: 25px auto 0 auto;
+            width: 970px !important;
+            padding-left: 15px;
+            padding-right: 15px;
+            .info {
+              width: inherit !important;
+              .title {
+                width: 740px !important;
+                line-height: inherit;
+                text-align: center;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .slide {
+    section {
+      .view-slideshow {
+        height: 530px;
+        .attachment {
+          top: 0;
+          width: 100% !important;
+          height: 580px !important;
+          .view-content {
+            height: 530px;
+            .views-bootstrap-grid-plugin-style {
+              height: 530px;
+              .row {
+                height: 530px;
+                .col-lg-12 {
+                  width: 100% !important;
+                  height: 530px;
+                  padding-left: 40px;
+                  padding-right: 40px;
+                  .info {
+                    width: inherit !important;
+                    .title {
+                      line-height: 40px;
+                      width: inherit !important;
+                      text-align: center;
+                      white-space: normal;
+                      a {
+                        display: inline-block !important;
+                      }
+                    }
+                    .description {
+                      .count-down,
+                      .company,
+                      .sales {
+                        text-align: center;
+                        float: none !important;
+                        display: block !important;
+                        width: 100% !important;
+                        margin: 10px 0 !important;
+                        .count-down,
+                        .company,
+                        .sales {
+                          margin: 0 !important;
+                        }
+
+                        &:before {
+                          float: none !important;
+                          display: none !important;
+                        }
+                        span {
+                          &:before {
+                            display: none !important;
+                          }
+                        }
+                      }
+                    }
+                  }
+                  .views-field-commerce-price {
+                    width: 100%;
+                    .price-outer {
+                      position: static !important;
+                      margin: 10px auto;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .slide {
+    section {
+      .view-slideshow {
+        .attachment {
+          .col-lg-12 {
+            .info {
+              .title {
+                a {
+                  font-size: 30px !important;
+                  line-height: 30px !important;
+                  display: inline-block !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 #top-header {
   background-color: #333333;
-  box-shadow: -900px 0 #333, 900px 0 #333;
   color: #fff;
   height: 32px;
   color: #fff;
@@ -141,7 +327,6 @@ body.admin-menu.navbar-is-fixed-top {
               a {
                 font-family: 'Helia-Regular';
                 font-size: 40px;
-                letter-spacing: 1px;
                 text-decoration: none;
                 text-transform: uppercase;
                 color: #fff;
@@ -250,8 +435,8 @@ body.admin-menu.navbar-is-fixed-top {
 
                 .before-price {
                   text-align: center;
-                  padding-top: 50px;
-                  padding-bottom: 10px;
+                  padding-top: 45px;
+                  padding-bottom: 15px;
                   font-size: 16px;
                 }
                 .now-price {
@@ -262,10 +447,16 @@ body.admin-menu.navbar-is-fixed-top {
                   margin-bottom: 5px;
                 }
                 .procent {
+                  font-family: 'Helia-Regular';
                   text-align: center;
-                  font-size: 16px;
+                  font-size: 12px;
+                  background: rgba(0, 0, 0, 0.2);
+                  width: 80px;
+                  padding: 4px 4px 2px;
+                  line-height: 20px;
+                  border-radius: 4px;
+                  margin: 10px auto 0 auto;
                 }
-
               }
             }
           }
