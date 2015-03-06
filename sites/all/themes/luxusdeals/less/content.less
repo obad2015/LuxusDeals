@@ -99,7 +99,7 @@ a {
   }
 
   .page-header {
-    padding-bottom: 9px;
+    padding-bottom: 0;
     text-align: center;
     border: 0;
   }
@@ -318,6 +318,169 @@ a {
       font-family: 'Helia-Regular';
       color: #77A500;
       font-weight: normal;
+    }
+  }
+}
+
+div#map_canvas {
+  width: 100% !important;
+  margin-bottom: 20px;
+}
+
+.commerce-add-to-cart {
+  .btn.btn-success {
+    margin: 14px 0;
+    border: 0;
+    width: 100%;
+    border-radius: 0;
+    padding: 5px 22px;
+    height: 40px;
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 33px;
+    background-color: #77A500;
+    border-color: transparent;
+    background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+    background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+    margin-bottom: 20px;
+    &:hover {
+      opacity: 1;
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+    }
+  }
+}
+
+.social-links {
+  height: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+strong, b {
+  font-family: 'Helia-Regular';
+}
+
+#related-deals {
+  background-color: #F0F0F0;
+  .sidebarheader {
+    font-family: 'Helia-Regular';
+    font-size: 14px;
+    margin: 25px 0;
+    text-transform: uppercase;
+    a {
+      float: right;
+    }
+  }
+}
+
+.col-md-9 {
+  .field-name-field-details,
+  .field-name-field-fine-line-notes {
+    margin-top: 30px;
+  }
+}
+
+.company-info {
+  strong, b {
+    font-family: 'Helia-Regular';
+    text-transform: uppercase;
+  }
+  .field-name-field-phone {
+    .field-item {
+      border-top: 1px dotted #ccc;
+      border-bottom: 1px dotted #ccc;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
+      &:before {
+        content: "\f095";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        margin-right: 10px;
+      }
+    }
+  }
+  .field-name-field-email {
+    .field-item {
+      border-bottom: 1px dotted #ccc;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
+      a {
+        color: #333;
+        &:before {
+          content: "\f1fa";
+          font-family: FontAwesome;
+          font-style: normal;
+          font-weight: normal;
+          text-decoration: inherit;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  .field-name-field-web-site {
+    .field-item {
+      border-bottom: 1px dotted #ccc;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
+      a {
+        color: #333;
+        &:before {
+          content: "\f015";
+          font-family: FontAwesome;
+          font-style: normal;
+          font-weight: normal;
+          text-decoration: inherit;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  .field.field-name-field-address.field-type-addressfield.field-label-hidden:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    .well {
+      padding: 19px;
+      #block-views-product-categories-block {
+        .block-title {
+          text-align: center;
+        }
+        .view-product-categories {
+          .views-field {
+            a {
+              text-align: center;
+              width: 50%;
+              display: inline-block;
+              float: left;
+              border-bottom: 0;
+              i {
+                font-size: 50px;
+                width: auto;
+              }
+              span {
+                margin-top: 10px;
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .breadcrumb {
+      text-align: center;
+      text-transform: uppercase;
+      background: #fff;
+      padding: 8px 15px;
+      margin-bottom: 15px;
     }
   }
 }

@@ -87,12 +87,12 @@
 <div id="node-<?php print $node->nid; ?>"
      class="<?php print $classes; ?> luxusdeals-deal clearfix"<?php print $attributes; ?>>
   <div class="content"<?php print $content_attributes; ?>>
-    <div class="row">
+    <div class="row" style="margin-bottom: 40px;">
       <div class="col-md-9">
         <?php print render($content['product:field_details']); ?>
         <?php print render($content['product:field_fine_line_notes']); ?>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 company-info">
         <!-- Add to cart button -->
         <?php print render($content['field_product']); ?>
         <div class="social-links">
@@ -115,7 +115,6 @@
         <br>
         <?php print render($content['field_store_refer'][0]['field_phone']); ?>
         <?php print render($content['field_store_refer'][0]['field_email']); ?>
-        <br>
         <?php print render($content['field_store_refer'][0]['field_web_site']); ?>
         <?php print render($content['field_store_refer'][0]['field_address']); ?>
       </div>
