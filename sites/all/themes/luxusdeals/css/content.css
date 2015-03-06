@@ -9,14 +9,75 @@ a:hover {
   text-decoration: none;
 }
 .front .view-filters {
-  display: none;
+  display: none !important;
 }
+.page-last-chance,
+.page-taxonomy,
 .page-all-deals {
   background-color: #f0f0f0;
+}
+.page-last-chance .page-header,
+.page-taxonomy .page-header,
+.page-all-deals .page-header {
+  display: none;
+}
+.node-type-deal .main-container .page-header {
+  display: none;
+}
+.node-type-deal .main-container .bootstrap-twocol-stacked {
+  margin-top: 50px;
+}
+.node-type-deal .main-container img.static_google_map {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.node-type-deal .main-container .addressfield-container-inline.name-block {
+  font-family: 'Helia-Regular';
+}
+.views-widget-sort-order {
+  display: none;
+}
+.breadcrumb {
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
 .main-container {
   overflow: hidden;
   margin: 25px auto 0 auto;
+}
+.main-container .view-header {
+  width: 50%;
+  display: inline-block;
+  float: left;
+  padding: 15px 0;
+}
+.main-container .view-filters {
+  width: 50%;
+  display: inline-block;
+}
+.main-container .view-filters .views-widget-sort-by {
+  padding-right: 0;
+  width: 200px;
+  float: right;
+}
+.main-container .view-filters .views-widget-sort-by label {
+  color: #999;
+  margin-right: 5px;
+  margin-bottom: 0;
+  padding: 7px 0;
+  text-transform: uppercase;
+}
+.main-container .view-filters .views-widget-sort-by .form-group {
+  float: right;
+}
+.main-container .view-filters .views-widget-sort-by .form-group select {
+  border: 0;
+  text-transform: uppercase;
+  width: 100px;
+  float: right;
+  box-shadow: none;
 }
 .main-container .page-header {
   padding-bottom: 9px;
@@ -27,6 +88,7 @@ a:hover {
   padding-bottom: 0;
   background-color: #fff;
   border: 0;
+  box-shadow: none;
 }
 .main-container .well #block-views-product-categories-block h2 {
   font-size: 20px;
@@ -46,6 +108,7 @@ a:hover {
   font-size: 18px;
   vertical-align: top;
 }
+.main-container .well #block-views-product-categories-block .view-product-categories .views-field a.active,
 .main-container .well #block-views-product-categories-block .view-product-categories .views-field a:hover {
   color: #70a000;
 }
@@ -54,6 +117,7 @@ a:hover {
 }
 .main-container .pager {
   margin: 0;
+  margin-bottom: 25px;
 }
 .main-container .pager li > a {
   border: 0;

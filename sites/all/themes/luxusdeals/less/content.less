@@ -15,17 +15,88 @@ a {
 
 .front {
   .view-filters {
+    display: none !important;
+  }
+}
+
+.page-last-chance,
+.page-taxonomy,
+.page-all-deals {
+  background-color: #f0f0f0;
+  .page-header {
     display: none;
   }
 }
 
-.page-all-deals {
-  background-color: #f0f0f0;
+.node-type-deal {
+  .main-container {
+    .page-header {
+      display: none;
+    }
+    .bootstrap-twocol-stacked {
+      margin-top: 50px;
+    }
+
+    img.static_google_map {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .addressfield-container-inline.name-block {
+      font-family: 'Helia-Regular';
+    }
+  }
+}
+
+.views-widget-sort-order {
+  display: none;
+}
+
+.breadcrumb {
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
 
 .main-container {
   overflow: hidden;
   margin: 25px auto 0 auto;
+
+  .view-header {
+    width: 50%;
+    display: inline-block;
+    float: left;
+    padding: 15px 0;
+  }
+
+  .view-filters {
+    width: 50%;
+    display: inline-block;
+    .views-widget-sort-by {
+      padding-right: 0;
+      width: 200px;
+      float: right;
+      label {
+        color: #999;
+        margin-right: 5px;
+        margin-bottom: 0;
+        padding: 7px 0;
+        text-transform: uppercase;
+      }
+
+      .form-group {
+        float: right;
+        select {
+          border: 0;
+          text-transform: uppercase;
+          width: 100px;
+          float: right;
+          box-shadow: none;
+        }
+      }
+    }
+  }
 
   .page-header {
     padding-bottom: 9px;
@@ -37,6 +108,7 @@ a {
     padding-bottom: 0;
     background-color: #fff;
     border: 0;
+    box-shadow: none;
 
     #block-views-product-categories-block {
       h2 {
@@ -60,6 +132,7 @@ a {
               vertical-align: top;
 
             }
+            &.active,
             &:hover {
               color: #70a000;
             }
@@ -74,6 +147,7 @@ a {
 
   .pager {
     margin: 0;
+    margin-bottom: 25px;
     li > a {
       border: 0;
       color: #fff;

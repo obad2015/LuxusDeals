@@ -76,15 +76,17 @@
 
 
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
-  <div class="container">
-    <div id="top-header">
+
+  <div id="top-header">
+    <div class="container">
       <ul class="pull-right">
         <li><a href="#">Handelsbetingelser</a></li>
-        <li><a href="#">Cookie- og privatlivspolitik</a></li>
         <li><a href="#">Om Luxusdeals</a></li>
         <li><a href="#">Følg os på Facebook</a></li>
       </ul>
     </div>
+  </div>
+  <div class="container">
     <div class="navbar-header">
       <?php if ($logo): ?>
         <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>"
@@ -122,7 +124,7 @@
           <?php endif; ?>
           <button type="button"
                   class="btn btn-success pull-right call-to-action"><i
-              class="fa fa-user-plus"></i> Tilmeld. <span>Spar 10%</span>
+              class="fa fa-user-plus"></i> Tilmeld. <span>Spar +15%</span>
           </button>
         </nav>
       </div>
@@ -144,10 +146,8 @@
     <?php endif; ?>
 
     <?php if (!empty($top_image)): ?>
-      <div class="cover-image" style="background-image: url('<?php print $top_image; ?>');">
-        <div class="overlay">
-          <h1 class="text-center"><?php print $title; ?></h1>
-        </div>
+      <div class="cover-image"
+           style="background-image: url('<?php print $top_image; ?>');">
       </div>
     <?php endif; ?>
 
@@ -156,7 +156,6 @@
 </div>
 
 <div class="main-container container">
-
 
   <!-- /#page-header -->
 
@@ -175,13 +174,11 @@
       <?php endif; ?>
       <?php if (!empty($breadcrumb)): print $breadcrumb; endif; ?>
       <a id="main-content"></a>
-      <?php if (empty($top_image)): ?>
       <?php print render($title_prefix); ?>
       <?php if (!empty($title)): ?>
         <h1 class="page-header"><?php print $title; ?></h1>
       <?php endif; ?>
       <?php print render($title_suffix); ?>
-      <?php endif; ?>
       <?php print $messages; ?>
       <?php if (!empty($tabs)): ?>
         <?php print render($tabs); ?>
@@ -205,9 +202,12 @@
 <div class="partners">
   <div class="container">
     <h3 class="text-center">
-    LuxusDeal samarbejder med de bedste virksomheder over
-    hele Danmark for at levere dig de billigeste og nyeste deals. <span class="membership">Gør et kup! Tilmeld dit medlemskab idag og <b>få yderligere 10% i rabat på regningen</b>, når du handler hos os.</span>
-    </h2>
+      Vi samarbejder med de bedste virksomheder over
+      hele Danmark for at levere dig de billigeste og nyeste deals. <br/> <span
+        class="membership">Gør et kup! Tilmeld dit medlemskab idag og <b>få
+          yderligere +15% i rabat på
+          regningen</b>, når du handler hos os.</span>
+      </h2>
   </div>
 </div>
 
