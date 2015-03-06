@@ -199,6 +199,17 @@
     <?php endif; ?>
   </div>
 </div>
+
+
+<?php if (!empty($related_deals)): ?>
+  <div id='related-deals' class="container-fluid">
+    <div class="container">
+      <?php print $related_deals; ?>
+    </div>
+  </div>
+<?php endif; ?>
+
+
 <div class="partners">
   <div class="container">
     <h3 class="text-center">
@@ -207,7 +218,7 @@
         class="membership">Gør et kup! Tilmeld dit medlemskab idag og <b>få
           yderligere +15% i rabat på
           regningen</b>, når du handler hos os.</span>
-      </h2>
+    </h3>
   </div>
 </div>
 
