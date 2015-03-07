@@ -409,3 +409,9 @@ b {
     margin-bottom: 15px;
   }
 }
+.page-checkout .radio input[type="radio"] {
+  margin-left: inherit;
+}
+.page-checkout .form-item-commerce-payment-payment-method {
+  margin-bottom: 15px;
+}
