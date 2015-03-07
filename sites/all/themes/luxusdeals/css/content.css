@@ -415,3 +415,6 @@ b {
 .page-checkout .form-item-commerce-payment-payment-method {
   margin-bottom: 15px;
 }
+.page-checkout .form-control {
+  width: 100% !important;
+}
