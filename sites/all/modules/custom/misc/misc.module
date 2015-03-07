@@ -57,13 +57,13 @@ function misc_views_post_render(&$view, &$output, &$cache) {
  */
 function misc_taxonomy_term_view_alter(&$build) {
   if ($build['#term']->vocabulary_machine_name == 'product_categories') {
-    // Build Breadcrumbs
+    // Build Breadcrumbs.
     $breadcrumb = array();
     $breadcrumb[] = l('HJEM', '<front>');
     $breadcrumb[] = l('FIND TILBUD', 'all-deals');
     $breadcrumb[] = $build['#term']->name;
 
-    // Set Breadcrumbs
+    // Set Breadcrumbs.
     drupal_set_breadcrumb($breadcrumb);
 
     $GLOBALS['top_bar_image'] = $build['#term']->vocabulary_machine_name . '-' . $build['#term']->tid;
@@ -104,5 +104,194 @@ function misc_node_view($node, $view_mode, $langcode) {
     // Set Breadcrumbs.
     drupal_set_breadcrumb($breadcrumb);
   }
+}
 
+/**
+ * Implements hook_permission().
+ */
+function misc_permission() {
+  return array(
+    'get discount' => array(
+      'title' => t('Get discounted prices'),
+      'description' => t('Get 15% discount on all luxusdeal offeres.'),
+    ),
+  );
+}
+
+/**
+ * Create add to cart button for a specific product.
+ *
+ * @param int $pid
+ * @param string $type
+ *
+ * @return array|mixed
+ */
+function misc_add_product_to_cart_button($pid = 9, $type = 'product') {
+  $product_data = commerce_product_load($pid);
+  $line_item = commerce_product_line_item_new($product_data, 1, 0, array('context' => array('display_path' => NULL)), $type);
+
+  $line_item->data['context']['add_to_cart_combine'] = TRUE;
+  $line_item->data['context']['product_ids'] = str_split($pid);
+  $cart_form = drupal_get_form('commerce_cart_add_to_cart_form_' . $pid, $line_item);
+  return $cart_form;
+}
+
+/**
+ * Alter commerce add to cart button.
+ *
+ * Implements hook_form_alter().
+ */
+function misc_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state) {
+  if ($form['product_id']['#value'] == 9) {
+    $form['submit']['#value'] = 'nav_bar_subscribe_button';
+    $form['submit']['#attributes']['class'][] = 'nav_bar_subscribe_button';
+  }
+}
+
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function misc_field_formatter_info() {
+  return array(
+    'luxusdeal_formatted_amount' => array(
+      'label' => t('Luxusdeal Price Format (decimals handler)'),
+      'field types' => array('commerce_price'),
+    ),
+  );
+}
+
+
+/**
+ * Implements hook_field_formatter_view().
+ *
+ * Stolen from commerce_price
+ */
+function misc_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  // Loop through each price value in this field.
+  foreach ($items as $delta => $item) {
+    // Do not render a price if the amount is NULL (i.e. non-zero empty value).
+    if (is_null($item['amount'])) {
+      continue;
+    }
+
+    if ($display['type'] == 'luxusdeal_formatted_amount') {
+      $element[$delta] = array(
+        '#markup' => luxusdeal_currency_format($item['amount'], $item['currency_code'], $entity),
+      );
+    }
+  }
+
+  return $element;
+}
+
+/**
+ * Luxusdeal format a number.
+ *
+ * @param $amount
+ *   the amount to format.
+ * @param $currency_code
+ *   the current code.
+ * @param null $object
+ *   the full product object.
+ *
+ * @return string
+ *   the formatted price.
+ */
+function luxusdeal_currency_format($amount, $currency_code, $object = NULL) {
+  // First load the currency array.
+  $currency = commerce_currency_load($currency_code);
+  // Should we use discounted price?.
+  $update_price = user_access('get discount');
+
+  if ($update_price) {
+    misc_update_sell_price($object);
+    $amount = $object->commerce_price['und'][0]['amount'];
+  }
+
+  // Then convert the price amount to the currency's major unit decimal value.
+  if ($convert = TRUE) {
+    $amount = commerce_currency_amount_to_decimal($amount, $currency_code);
+  }
+
+  // Invoke the custom format callback if specified.
+  if (!empty($currency['format_callback'])) {
+    return $currency['format_callback']($amount, $currency, $object);
+  }
+
+  // Get decimal part.
+  $decimal = commerce_currency_round(abs($amount), $currency);
+  if (!strstr($decimal, $currency['decimal_separator'])) {
+    $currency['decimals'] = 0;
+  }
+
+  // Format the price as a number.
+  $price = number_format(commerce_currency_round(abs($amount), $currency), $currency['decimals'], $currency['decimal_separator'], $currency['thousands_separator']);
+
+  // Establish the replacement values to format this price for its currency.
+  $replacements = array(
+    '@code_before' => $currency['code_placement'] == 'before' ? $currency['code'] : '',
+    '@symbol_before' => $currency['symbol_placement'] == 'before' ? $currency['symbol'] : '',
+    '@price' => $price,
+    '@symbol_after' => $currency['symbol_placement'] == 'after' ? $currency['symbol'] : '',
+    '@code_after' => $currency['code_placement'] == 'after' ? $currency['code'] : '',
+    '@negative' => $amount < 0 ? '-' : '',
+  );
+
+  return trim(t('@code_before @negative@symbol_before@price @symbol_after @code_after', $replacements));
+}
+
+/**
+ * Update the sell price for a specific product.
+ *
+ * Applies discounts and VAT to the price.
+ *
+ * @param object $product
+ *   the product entity to update the price.
+ */
+function misc_update_sell_price(&$product) {
+  $update_price = TRUE;
+
+  if (isset($product->commerce_price['und'][0]['data']['components'])
+    && count($product->commerce_price['und'][0]['data']['components']) > 0
+  ) {
+    foreach ($product->commerce_price['und'][0]['data']['components'] as $component) {
+      if ($component['name'] == 'discount') {
+        $update_price = FALSE;
+      }
+    }
+  }
+
+  if ($update_price) {
+    $product->commerce_price['und'][0] = commerce_product_calculate_sell_price($product);
+  }
+}
+
+/**
+ * Computed field display callback.
+ *
+ * @param $field
+ * @param $entity_field_item
+ * @param $entity_lang
+ * @param $langcode
+ * @param $entity
+ *
+ * @return int
+ *   the calculated discount.
+ */
+function computed_field_field_discount_display($field, $entity_field_item, $entity_lang, $langcode, $entity) {
+  $update_price = user_access('get discount');
+
+  if ($update_price) {
+    misc_update_sell_price($entity);
+  }
+
+  $price = $entity->commerce_price['und'][0]['amount'];
+  $original_price = isset($entity->field_or_price['und'][0]['amount']) ? $entity->field_or_price['und'][0]['amount'] : $price;
+
+  $discount = intval((1 - ($price / $original_price)) * 100);
+
+  return $discount;
 }

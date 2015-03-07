@@ -122,10 +122,11 @@
           <?php if (!empty($page['navigation'])): ?>
             <?php print render($page['navigation']); ?>
           <?php endif; ?>
-          <button type="button"
-                  class="btn btn-success pull-right call-to-action"><i
-              class="fa fa-user-plus"></i> Tilmeld. <span>Spar +15%</span>
-          </button>
+          <?php if (!$premium_user): ?>
+            <?php if(!empty($subscribe_button)): ?>
+              <?php print drupal_render($subscribe_button); ?>
+            <?php endif; ?>
+          <?php endif; ?>
         </nav>
       </div>
     <?php endif; ?>
@@ -210,17 +211,19 @@
 <?php endif; ?>
 
 
-<div class="partners">
-  <div class="container">
-    <h3 class="text-center">
-      Vi samarbejder med de bedste virksomheder over
-      hele Danmark for at levere dig de billigeste og nyeste deals. <br/> <span
-        class="membership">Gør et kup! Tilmeld dit medlemskab idag og <b>få
-          yderligere +15% i rabat på
-          regningen</b>, når du handler hos os.</span>
-    </h3>
+<?php if (!$premium_user): ?>
+  <div class="partners">
+    <div class="container">
+      <h3 class="text-center">
+        Vi samarbejder med de bedste virksomheder over
+        hele Danmark for at levere dig de billigeste og nyeste deals. <br/>
+        <span class="membership">Gør et kup! Tilmeld dit medlemskab idag og <b>få
+            yderligere +15% i rabat på
+            regningen</b>, når du handler hos os.</span>
+      </h3>
+    </div>
   </div>
-</div>
+<?php endif; ?>
 
 <footer class="footer container-fluid">
   <?php print render($page['footer']); ?>
