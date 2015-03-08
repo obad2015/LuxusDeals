@@ -211,7 +211,7 @@
 <?php endif; ?>
 
 
-<?php if (!$premium_user): ?>
+<?php //if (!$premium_user): ?>
   <div class="partners">
     <div class="container">
       <h3 class="text-center">
@@ -223,7 +223,7 @@
       </h3>
     </div>
   </div>
-<?php endif; ?>
+<?php //endif; ?>
 
 <footer class="footer container-fluid">
   <?php print render($page['footer']); ?>

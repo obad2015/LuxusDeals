@@ -418,3 +418,23 @@ b {
 .page-checkout .form-control {
   width: 100% !important;
 }
+.page-checkout .chosen-processed,
+.page-checkout .country {
+  padding: 0;
+}
+.page-checkout .chosen-processed .chosen-single,
+.page-checkout .country .chosen-single {
+  border: 0;
+  height: inherit;
+  background: none;
+  box-shadow: none;
+  padding: 4px 8px;
+}
+.premium-user .partners .membership {
+  display: none;
+}
+.view-empty {
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+}
