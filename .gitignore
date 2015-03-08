@@ -20,3 +20,4 @@ sites/all/modules/README.txt
 sites/all/themes/README.txt
 
 .idea/*
+.idea/workspace.xml
