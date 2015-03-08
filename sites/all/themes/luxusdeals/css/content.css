@@ -312,13 +312,13 @@ b {
 #related-deals {
   background-color: #F0F0F0;
 }
-#related-deals .sidebarheader {
+#related-deals .view-header {
   font-family: 'Helia-Regular';
   font-size: 14px;
   margin: 25px 0;
   text-transform: uppercase;
 }
-#related-deals .sidebarheader a {
+#related-deals .view-header a {
   float: right;
 }
 .col-md-9 .field-name-field-details,
