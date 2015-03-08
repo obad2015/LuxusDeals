@@ -7803,7 +7803,7 @@ div#map_canvas {
   font-size: 16px;
   text-transform: uppercase;
   line-height: 33px;
-  background-color: #77A500;
+  background-color: #999;
   border-color: transparent;
   background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
   background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
