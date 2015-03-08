@@ -83,6 +83,12 @@
         <li><a href="#">Handelsbetingelser</a></li>
         <li><a href="#">Om Luxusdeals</a></li>
         <li><a href="#">Følg os på Facebook</a></li>
+        <?php if($logged_in): ?>
+          <li><a href="user">My account</a></li>
+          <li><a href="user/logout?destination=<?php print current_path(); ?>">Logout</a></li>
+        <?php else: ?>
+          <li><a href="user/login?destination=<?php print current_path(); ?>">Login</a></li>
+        <?php endif; ?>
       </ul>
     </div>
   </div>
