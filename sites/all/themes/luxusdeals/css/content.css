@@ -277,7 +277,7 @@ div#map_canvas {
   width: 100% !important;
   margin-bottom: 20px;
 }
-.luxusdeals-deal .commerce-add-to-cart .btn.btn-success {
+.luxusdeals-deal .commerce-add-to-cart .btn {
   margin: 14px 0;
   border: 0;
   width: 100%;
@@ -295,7 +295,7 @@ div#map_canvas {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
   margin-bottom: 20px;
 }
-.luxusdeals-deal .commerce-add-to-cart .btn.btn-success:hover {
+.luxusdeals-deal .commerce-add-to-cart .btn:hover {
   opacity: 1;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
 }
