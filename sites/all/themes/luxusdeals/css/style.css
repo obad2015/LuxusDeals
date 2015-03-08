@@ -7953,6 +7953,9 @@ b {
   text-align: center;
   font-size: 16px;
 }
+.no-deals .view-filters {
+  display: none;
+}
 footer {
   background-color: #333333;
   color: #fff;
