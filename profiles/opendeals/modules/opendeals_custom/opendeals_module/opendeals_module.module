@@ -36,7 +36,7 @@ function opendeals_module_commerce_currency_info_alter(&$currencies, $langcode) 
 /**
  * Implements hook_views_pre_build().
  */
-function opendeals_module_views_pre_build(&$view) {
+function _opendeals_module_views_pre_build(&$view) {
   if ($view->name == 'all_deals' || $view->name == 'frontpage') {
     if (!empty($_GET['deals_city'])) {
       $view->args[0] = $_GET['deals_city'];
@@ -47,7 +47,7 @@ function opendeals_module_views_pre_build(&$view) {
 /**
  * Implements hook_init().
  */
-function opendeals_module_init() {
+function _opendeals_module_init() {
   drupal_add_js('misc/jquery.cookie.js');
   drupal_add_js('profiles/opendeals/modules/opendeals_custom/opendeals_module/opendeals_module.js');
 }
@@ -55,7 +55,7 @@ function opendeals_module_init() {
 /**
  * Implements hook_boot().
  */
-function opendeals_module_boot() {
+function _opendeals_module_boot() {
   // init database layer
   _drupal_bootstrap_database();
 

@@ -1,4 +1,5 @@
 (function($){
+  /*
   $(document).ready(function(){
   deals_city = $.cookie('deals_city');
   if(deals_city != '' && deals_city != null){
@@ -22,4 +23,5 @@
   }
   });
   });
+  */
 })(jQuery);
