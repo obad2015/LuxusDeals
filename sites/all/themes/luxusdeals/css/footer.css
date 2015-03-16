@@ -12,9 +12,9 @@ footer.footer {
 }
 footer .footer-image {
   background-image: url("../images/logogray.png");
-  width: 160px;
-  height: 23px;
-  max-width: 160px;
+  width: 120px;
+  height: 44px;
+  max-width: 120px;
   background-size: cover;
   background-position: 50%;
   margin: 0 auto;
@@ -22,11 +22,11 @@ footer .footer-image {
 }
 footer .address {
   text-align: center;
-  color: #fff;
+  color: #666;
   text-transform: uppercase;
 }
 footer .address a {
-  color: #fff;
+  color: #666;
 }
 footer .payment {
   background-image: url("../images/payment.png");

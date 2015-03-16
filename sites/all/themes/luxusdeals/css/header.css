@@ -8,10 +8,10 @@ header.navbar-default {
   border-bottom: 0;
 }
 header.navbar-default .logo {
-  margin: 23px 0;
+  margin: 8px 0;
 }
 header.navbar-default .logo img {
-  max-width: 160px;
+  max-width: 120px;
 }
 header.navbar-default .navbar-nav > li.first a:before {
   content: "\f002";

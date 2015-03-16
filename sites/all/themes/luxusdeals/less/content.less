@@ -102,6 +102,7 @@ a {
     padding-bottom: 0;
     text-align: center;
     border: 0;
+    text-transform: uppercase;
   }
 
   .well {
@@ -198,27 +199,22 @@ a {
       }
       .image {
         position: relative;
-        a {
-          &:hover {
-            opacity: 1;
-          }
-          img {
-            width: 100%;
-          }
-          .category {
-            font-family: 'Helia-Regular';
-            text-transform: uppercase;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            font-size: 12px;
-            padding: 10px 10px;
-            height: 18px;
-            line-height: 3px;
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            text-align: center;
-          }
+        img {
+          width: 100%;
+        }
+        .category {
+          font-family: 'Helia-Regular';
+          text-transform: uppercase;
+          background-color: rgba(0, 0, 0, 0.7);
+          color: #fff;
+          font-size: 12px;
+          padding: 10px 10px;
+          height: 18px;
+          line-height: 3px;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          text-align: center;
         }
       }
       .caption {
@@ -237,11 +233,9 @@ a {
         .company {
           line-height: 14px;
           text-align: center;
-          a {
-            font-size: 12px;
-            color: #888;
-            text-transform: uppercase;
-          }
+          font-size: 12px;
+          color: #888;
+          text-transform: uppercase;
         }
 
         .left-box {
@@ -337,10 +331,10 @@ div#map_canvas {
     line-height: 33px;
     background-color: #999;
     border-color: transparent;
-    background-image: -moz-linear-gradient(bottom,rgba(0,0,0,0.2),rgba(255,255,255,0.1));
-    background-image: -o-linear-gradient(bottom,rgba(0,0,0,0.2),rgba(255,255,255,0.1));
-    background-image: -webkit-linear-gradient(bottom,rgba(0,0,0,0.2),rgba(255,255,255,0.1));
-    background-image: linear-gradient(to top,rgba(0,0,0,0.2),rgba(255,255,255,0.1));
+    background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+    background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
     margin-bottom: 20px;
     &:hover {
       opacity: 1;
@@ -361,6 +355,9 @@ strong, b {
 
 #related-deals {
   background-color: #F0F0F0;
+  &.container-fluid {
+    padding: 0;
+  }
   .view-header {
     font-family: 'Helia-Regular';
     font-size: 14px;
@@ -525,5 +522,53 @@ strong, b {
 .no-deals {
   .view-filters {
     display: none;
+  }
+}
+
+.block-simplenews {
+  width: 100%;
+  margin: 0 auto 25px auto;
+  padding-bottom: 25px;
+  text-align: center;
+  border-bottom: 1px solid #444444;
+  p {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  label {
+    display: none;
+  }
+  .form-item-mail {
+    width: 300px;
+    margin: 0 auto 15px auto;
+    .form-control {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      height: 40px;
+      text-align: center;
+    }
+  }
+  form {
+    .form-submit {
+      border: 0;
+      border-radius: 0;
+      padding: 5px 22px;
+      height: 40px;
+      color: #fff;
+      font-size: 16px;
+      text-transform: uppercase;
+      line-height: 33px;
+      background-color: #999;
+      border-color: transparent;
+      background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+      background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+      background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+      &:hover {
+        opacity: 1;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+      }
+    }
   }
 }

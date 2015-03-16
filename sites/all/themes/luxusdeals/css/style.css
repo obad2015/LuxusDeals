@@ -7113,10 +7113,10 @@ header.navbar-default {
   border-bottom: 0;
 }
 header.navbar-default .logo {
-  margin: 23px 0;
+  margin: 8px 0;
 }
 header.navbar-default .logo img {
-  max-width: 160px;
+  max-width: 120px;
 }
 header.navbar-default .navbar-nav > li.first a:before {
   content: "\f002";
@@ -7598,6 +7598,7 @@ a:hover {
   padding-bottom: 0;
   text-align: center;
   border: 0;
+  text-transform: uppercase;
 }
 .main-container .well {
   padding-bottom: 0;
@@ -7680,13 +7681,10 @@ a:hover {
 .view-ld-deals .col .thumbnail .image {
   position: relative;
 }
-.view-ld-deals .col .thumbnail .image a:hover {
-  opacity: 1;
-}
-.view-ld-deals .col .thumbnail .image a img {
+.view-ld-deals .col .thumbnail .image img {
   width: 100%;
 }
-.view-ld-deals .col .thumbnail .image a .category {
+.view-ld-deals .col .thumbnail .image .category {
   font-family: 'Helia-Regular';
   text-transform: uppercase;
   background-color: rgba(0, 0, 0, 0.7);
@@ -7716,8 +7714,6 @@ a:hover {
 .view-ld-deals .col .thumbnail .caption .company {
   line-height: 14px;
   text-align: center;
-}
-.view-ld-deals .col .thumbnail .caption .company a {
   font-size: 12px;
   color: #888;
   text-transform: uppercase;
@@ -7822,6 +7818,9 @@ b {
 }
 #related-deals {
   background-color: #F0F0F0;
+}
+#related-deals.container-fluid {
+  padding: 0;
 }
 #related-deals .view-header {
   font-family: 'Helia-Regular';
@@ -7953,6 +7952,51 @@ b {
 .no-deals .view-filters {
   display: none;
 }
+.block-simplenews {
+  width: 100%;
+  margin: 0 auto 25px auto;
+  padding-bottom: 25px;
+  text-align: center;
+  border-bottom: 1px solid #444444;
+}
+.block-simplenews p {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.block-simplenews label {
+  display: none;
+}
+.block-simplenews .form-item-mail {
+  width: 300px;
+  margin: 0 auto 15px auto;
+}
+.block-simplenews .form-item-mail .form-control {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  height: 40px;
+  text-align: center;
+}
+.block-simplenews form .form-submit {
+  border: 0;
+  border-radius: 0;
+  padding: 5px 22px;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 33px;
+  background-color: #999;
+  border-color: transparent;
+  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1));
+}
+.block-simplenews form .form-submit:hover {
+  opacity: 1;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+}
 footer {
   background-color: #333333;
   color: #fff;
@@ -7967,9 +8011,9 @@ footer.footer {
 }
 footer .footer-image {
   background-image: url("../images/logogray.png");
-  width: 160px;
-  height: 23px;
-  max-width: 160px;
+  width: 120px;
+  height: 44px;
+  max-width: 120px;
   background-size: cover;
   background-position: 50%;
   margin: 0 auto;
@@ -7977,11 +8021,11 @@ footer .footer-image {
 }
 footer .address {
   text-align: center;
-  color: #fff;
+  color: #666;
   text-transform: uppercase;
 }
 footer .address a {
-  color: #fff;
+  color: #666;
 }
 footer .payment {
   background-image: url("../images/payment.png");

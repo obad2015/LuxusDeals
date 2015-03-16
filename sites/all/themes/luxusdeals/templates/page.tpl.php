@@ -222,7 +222,7 @@
     <div class="container">
       <h3 class="text-center">
         Vi samarbejder med de bedste virksomheder over
-        hele Danmark for at levere dig de billigeste og nyeste deals. <br/>
+        hele landet for at levere dig Danmarks mest luksuriøse deals.
         <span class="membership">Gør et kup! Tilmeld dit medlemskab idag og <b>få
             yderligere +15% i rabat på
             regningen</b>, når du handler hos os.</span>
