@@ -444,6 +444,10 @@ b {
   text-align: center;
   border-bottom: 1px solid #444444;
 }
+.block-simplenews h2.block-title {
+  margin-top: 0;
+  text-transform: uppercase;
+}
 .block-simplenews p {
   font-size: 14px;
   text-transform: uppercase;
