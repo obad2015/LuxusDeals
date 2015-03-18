@@ -19,6 +19,59 @@ a {
   }
 }
 
+//For 4K screen.
+@media (min-width: 2000px) {
+  .slide {
+    section {
+      .view-slideshow {
+        .attachment {
+          .col-lg-12 {
+            width: 1920px;
+
+            .views-field-commerce-price {
+              .price-outer {
+                top: -55px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .well {
+    padding: 30px 0 !important;
+    #block-views-product-categories-block {
+      .block-title {
+        text-align: center;
+      }
+      .view-product-categories {
+        .views-field {
+          a {
+            text-align: center !important;
+            width: 50% !important;
+            display: inline-block !important;
+            float: left !important;
+            border-bottom: 0 !important;
+            i {
+              font-size: 50px !important;
+              width: auto !important;
+            }
+            span {
+              margin-top: 10px !important;
+              display: block !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .container {
+    width: 1950px;
+  }
+}
+
 .page-last-chance,
 .page-taxonomy,
 .page-all-deals {

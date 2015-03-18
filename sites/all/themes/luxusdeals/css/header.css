@@ -238,6 +238,13 @@ body.admin-menu.navbar-is-fixed-top {
 .slide section .view-slideshow .carousel-indicators {
   bottom: 10px;
 }
+.slide section .view-slideshow .carousel-inner {
+  background: #000;
+}
+.slide section .view-slideshow .carousel-inner img {
+  margin: 0 auto;
+  display: block;
+}
 .slide section .view-slideshow .attachment {
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;

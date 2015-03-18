@@ -7343,6 +7343,13 @@ body.admin-menu.navbar-is-fixed-top {
 .slide section .view-slideshow .carousel-indicators {
   bottom: 10px;
 }
+.slide section .view-slideshow .carousel-inner {
+  background: #000;
+}
+.slide section .view-slideshow .carousel-inner img {
+  margin: 0 auto;
+  display: block;
+}
 .slide section .view-slideshow .attachment {
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
@@ -7525,6 +7532,38 @@ a:hover {
 }
 .front .view-filters {
   display: none !important;
+}
+@media (min-width: 2000px) {
+  .slide section .view-slideshow .attachment .col-lg-12 {
+    width: 1920px;
+  }
+  .slide section .view-slideshow .attachment .col-lg-12 .views-field-commerce-price .price-outer {
+    top: -55px;
+  }
+  .well {
+    padding: 30px 0 !important;
+  }
+  .well #block-views-product-categories-block .block-title {
+    text-align: center;
+  }
+  .well #block-views-product-categories-block .view-product-categories .views-field a {
+    text-align: center !important;
+    width: 50% !important;
+    display: inline-block !important;
+    float: left !important;
+    border-bottom: 0 !important;
+  }
+  .well #block-views-product-categories-block .view-product-categories .views-field a i {
+    font-size: 50px !important;
+    width: auto !important;
+  }
+  .well #block-views-product-categories-block .view-product-categories .views-field a span {
+    margin-top: 10px !important;
+    display: block !important;
+  }
+  .container {
+    width: 1950px;
+  }
 }
 .page-last-chance,
 .page-taxonomy,
