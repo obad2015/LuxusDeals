@@ -14,6 +14,11 @@ function misc_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'views_exposed_form') {
     $form['#attributes']['class'][] = 'form-inline';
   }
+
+  // Add a placeholder for the newsletter field.
+  if (strpos($form_id, 'simplenews_block_form') !== FALSE) {
+    $form['mail']['#attributes']['placeholder'] = t('Email');
+  }
 }
 
 
