@@ -80,9 +80,9 @@
   <div id="top-header">
     <div class="container">
       <ul class="pull-right">
-        <li><a href="#">Handelsbetingelser</a></li>
-        <li><a href="#">Om Luxusdeals</a></li>
-        <li><a href="#">Følg os på Facebook</a></li>
+        <li><a href="/handelsbetingelser">Handelsbetingelser</a></li>
+        <li><a href="/om-luxusdeal">Om Luxusdeal</a></li>
+        <li><a href="https://www.facebook.com/luxusdeal" target="_blank">Følg os på Facebook</a></li>
         <?php if($logged_in): ?>
           <li><a href="user">Min profil</a></li>
           <li><a href="user/logout?destination=<?php print current_path(); ?>">Log ud</a></li>
