@@ -242,8 +242,15 @@
         -moz-border-radius: 0px !important; border-radius: 0px !important; ">
         <!-- modal body -->
         <div class="modal-body" style="padding: 0;">
+          <button type="button" class="close"  style="position: absolute;  right: 5px; color: white; font-size: 50px" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <img src="/sites/all/themes/luxusdeals/images/cover.png"
                class="img-responsive" alt="Responsive image">
+
+          <a href="javascript:{}" class="nav_bar_subscribe_button btn form-submit btn-success pull-right call-to-action"
+             onclick="document.getElementById('commerce-cart-add-to-cart-form-9').submit(); return false;"
+             style="  position: absolute; bottom: 0px; right: 12px;">
+            <i class="fa fa-user-plus"></i> Tilmeld. <span>Spar +15%</span></a>
+
         </div>
       </div>
     </div>
@@ -251,12 +258,13 @@
 
   <script type="text/javascript">
     jQuery(document).ready(function() {
+
       // Only show popup if it isn't already seen.
       if(jQuery.cookie('popup-seen') == null || jQuery.cookie('popup-seen') == "")
       {
         jQuery('#subscribe-modal').modal('show');
         // Don't show the popup again for a month.
-        jQuery.cookie('popup-seen', true, { expires: 30, path: '/' });
+        jQuery.cookie('popup-seen', true, { expires: 365, path: '/' });
       }
     });
 
