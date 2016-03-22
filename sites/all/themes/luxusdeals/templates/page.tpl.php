@@ -237,15 +237,13 @@
 <!-- Modal -->
   <div class="modal fade" id="subscribe-modal" role="dialog" tabindex="-1"
        aria-hidden="true">
-    <div class="modal-dialog vertical-align-center" role="document">
-      <div class="vertical-alignment-helper">
-        <div class="modal-content" style="-webkit-border-radius: 0px !important;
-          -moz-border-radius: 0px !important; border-radius: 0px !important; ">
-          <!-- modal body -->
-          <div class="modal-body" >
-            <img src="/sites/all/themes/luxusdeals/images/cover.png"
-                 class="img-responsive" alt="Responsive image">
-          </div>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="-webkit-border-radius: 0px !important;
+        -moz-border-radius: 0px !important; border-radius: 0px !important; ">
+        <!-- modal body -->
+        <div class="modal-body" style="padding: 0;">
+          <img src="/sites/all/themes/luxusdeals/images/cover.png"
+               class="img-responsive" alt="Responsive image">
         </div>
       </div>
     </div>
