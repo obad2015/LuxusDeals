@@ -216,21 +216,51 @@
   </div>
 <?php endif; ?>
 
-
-<?php //if (!$premium_user): ?>
-  <div class="partners">
-    <div class="container">
-      <h3 class="text-center">
-        Vi samarbejder med de bedste virksomheder over
-        hele landet for at levere dig Danmarks mest luksuriøse deals.
-        <span class="membership">Gør et kup! Tilmeld dit medlemskab idag og <b>få
-            yderligere +15% i rabat på
-            regningen</b>, når du handler hos os.</span>
-      </h3>
-    </div>
+<div class="partners">
+  <div class="container">
+    <h3 class="text-center">
+      Vi samarbejder med de bedste virksomheder over
+      hele landet for at levere dig Danmarks mest luksuriøse deals.
+      <span class="membership">Gør et kup! Tilmeld dit medlemskab idag og <b>få
+          yderligere +15% i rabat på
+          regningen</b>, når du handler hos os.</span>
+    </h3>
   </div>
-<?php //endif; ?>
+</div>
 
 <footer class="footer container-fluid">
   <?php print render($page['footer']); ?>
 </footer>
+
+
+<?php if (!$premium_user): ?>
+<!-- Modal -->
+  <div class="modal fade" id="subscribe-modal" role="dialog" tabindex="-1"
+       aria-hidden="true">
+    <div class="modal-dialog vertical-align-center" role="document">
+      <div class="vertical-alignment-helper">
+        <div class="modal-content" style="-webkit-border-radius: 0px !important;
+          -moz-border-radius: 0px !important; border-radius: 0px !important; ">
+          <!-- modal body -->
+          <div class="modal-body" >
+            <img src="/sites/all/themes/luxusdeals/images/cover.png"
+                 class="img-responsive" alt="Responsive image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+      // Only show popup if it isn't already seen.
+      if(jQuery.cookie('popup-seen') == null || jQuery.cookie('popup-seen') == "")
+      {
+        jQuery('#subscribe-modal').modal('show');
+        // Don't show the popup again for a month.
+        jQuery.cookie('popup-seen', true, { expires: 30, path: '/' });
+      }
+    });
+
+  </script>
+<?php endif; ?>
