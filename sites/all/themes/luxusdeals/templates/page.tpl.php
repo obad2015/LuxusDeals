@@ -252,6 +252,11 @@
             <i class="fa fa-user-plus"></i> Tilmeld. <span>Spar +15%</span></a>
 
         </div>
+        <div class="modal-footer">
+          <p class="text-left">Herefter 39 kr./måned, Ingen binding, Læs <?php print l('betingelserne her', 'handelsbetingelser', array(
+              'attributes' => array('target' => '_blank'),
+            )); ?></p>
+        </div>
       </div>
     </div>
   </div>

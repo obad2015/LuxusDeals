@@ -7,6 +7,8 @@
  */
 
 
+define('MISC_BECOME_MEMBER_PRODUCT_ID', 9);
+
 /**
  * Implements hook_form_alter().
  */
@@ -299,4 +301,23 @@ function computed_field_field_discount_display($field, $entity_field_item, $enti
   $discount = intval((1 - ($price / $original_price)) * 100);
 
   return $discount;
+}
+
+
+/**
+ * Implements hook_commerce_checkout_router().
+ */
+function misc_commerce_checkout_router($order, $checkout_page) {
+
+  foreach ($order->commerce_line_items['und'] as $line_item_reference) {
+    $line_item = commerce_line_item_load($line_item_reference['line_item_id']);
+    $product_id = $line_item->commerce_product['und'][0]['product_id'];
+
+    if ($product_id == MISC_BECOME_MEMBER_PRODUCT_ID) {
+      $link =  l('betingelserne her', 'handelsbetingelser', array(
+        'attributes' => array('target' => '_blank'),
+      ));
+      drupal_set_message('Herefter 39 kr./måned, Ingen binding, Læs ' . $link);
+    }
+  }
 }
